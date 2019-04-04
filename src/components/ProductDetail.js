@@ -7,11 +7,10 @@ import {connect} from 'react-redux';
 
 
 const ProductDetail = (props) => {
-    console.log("inside product detail", props)
-    const title=props.productObj.title[0];
-    const img =props.productObj.galleryURL[0];
-    const condition = props.productObj.condition[0].conditionDisplayName[0]
-    const price=`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`
+    const title=props.productObj.title[0]? props.productObj.title[0]: " N/A"
+    const img =props.productObj.galleryURL[0]? props.productObj.galleryURL[0]: " N/A"
+    const condition = props.productObj.condition? props.productObj.condition[0].conditionDisplayName[0]: " N/A"
+    const price=`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`? `${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`: "N/A"
     
     const onClickHanlder = () => {    
         props.addCart(props.productObj)
@@ -21,13 +20,13 @@ const ProductDetail = (props) => {
     return (
         <div className="product-detail">
            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={ img? img: "N/A"} />
+            <Card.Img variant="top" src={img} />
             <Card.Body>
-                <Card.Title>{title? title: "N/A"}</Card.Title>
+                <Card.Title>{title}</Card.Title>
                 <Card.Text>
-                    Condition: {condition? condition : "N/A"}
+                    Condition: {condition}
                     <br />
-                    Price: {price? price : "N/A"}
+                    Price: {price}
                 </Card.Text>
                 <Button onClick={onClickHanlder} variant="primary">Add to Cart</Button>
             </Card.Body>
