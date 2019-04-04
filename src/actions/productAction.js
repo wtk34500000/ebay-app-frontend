@@ -1,6 +1,8 @@
 
+ import fetchJsonp from 'fetch-jsonp';
+
 const loadProduct = (products) => {return {type: "LOAD_PRODUCT", payload: products}}
-export const addCart = (prod)=> ({type: "ADD_CART", payload: prod})
+export const clickProduct = (prod) => ({type: "CLICK_PRODUCT", payload: prod})
 
 export const getProducts= (input)=> {
     return (dispatch)=> {
@@ -10,18 +12,29 @@ export const getProducts= (input)=> {
         url += "&SECURITY-APPNAME=tonyhuan-myapp-PRD-6bcb87b90-2910d9d6";
         url += "&GLOBAL-ID=EBAY-US";
         url += "&RESPONSE-DATA-FORMAT=JSON";
-        url += "&callback=_cb_findItemsByKeywords";
+        // url += "&callback=_cb_findItemsByKeywords";
         url += "&REST-PAYLOAD";
         url += `&keywords=${input}`;
         url += "&paginationInput.entriesPerPage=25";
 
-      return  fetch(url)
-                .then(res =>res.text())
-                .then(data => {
-                    const str = data.slice(28, data.length-1)
-                    const obj = JSON.parse(str)
-                    dispatch(loadProduct(obj.findItemsByKeywordsResponse[0].searchResult[0].item))
-                })
-                .catch(console.error)
+    //   return  fetch(url)
+    //             .then(res =>res.text())
+    //             .then(data => {
+    //                 const str = data.slice(28, data.length-1)
+    //                 const obj = JSON.parse(str)
+    //                 dispatch(loadProduct(obj.findItemsByKeywordsResponse[0].searchResult[0].item))
+    //             })
+    //             .catch(console.error)
+
+   
+
+        // const fetch = fetchJsonp();
+
+       return fetchJsonp(url)
+        .then(res=> res.json())
+        .then(data => dispatch(loadProduct(data.findItemsByKeywordsResponse[0].searchResult[0].item)))
+        .catch(function(ex) {
+        console.log('failed', ex);
+        });
     }
 }

@@ -39,6 +39,7 @@ class SignupForm extends Component{
                 user_name: '',
                 confirm_password: ''
             })
+        this.props.history.push('/')
     }
 
     handleClick = () => {
@@ -137,5 +138,6 @@ class SignupForm extends Component{
         
     }
 }
+
 
 export default withRouter(connect(null, {createUser})(SignupForm));

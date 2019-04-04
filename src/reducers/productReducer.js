@@ -1,18 +1,18 @@
 const initialState={
     products: [],
     searchTerm: "",
-    user: {},
-    cart: []
+    currentProduct:{}
 }
 
 const productReducer = (state = initialState, action) => {
     switch(action.type){
-        case "ADD_CART":
-            return { ...state, cart: [...state.cart, action.payload]}
-        case "ADD_USER":
-            return { user: action.payload }
+        
+        case "CLICK_PRODUCT":
+        console.log('production reducer', action.type)
+           return {...state, currentProduct: action.payload}
+      
         case "LOAD_PRODUCT":
-            return { products: action.payload }
+            return { ...state, products: action.payload }
         default:
             return state
     }

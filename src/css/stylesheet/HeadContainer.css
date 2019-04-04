@@ -1,8 +1,53 @@
 .head-container {
     display: flex;
+    width: 100%;
+    height: 7vh;
+    background-color: rgb(17, 122, 148);
+}
+
+.head-container div {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* .logo {
+    width: 20vw;
+} */
+
+.logo img{
+    /* position: relative; */
+    height: 6vh;
+    float:left;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#logo-img{
+    border: black soild 4px;
 }
 
 .search-bar {
     position: relative;
+    display: flex;
+    /* width: 40vw; */
     float:left;
+    margin-top: 15px;
+}
+
+.search-bar input {
+  width: 50vw;
+}
+
+.user-menu {
+    position: relative;
+    /* width: 40vw; */
+    display: flex;
+    align-items: center;
+    text-align: right;
+    float:right;
+    margin-top: 15px;
+    margin-left: 60%;
+  
 }

@@ -6,7 +6,7 @@ import {withRouter } from 'react-router-dom';
 const HomeContainer = () =>{
     return (
         <div className="home-container">
-             <HeadContainer />
+             {/* <HeadContainer /> */}
              <ButtonContainer />
         </div>
     )

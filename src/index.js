@@ -2,14 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-import ProductReducer from './reducers/productReducer'
+import productReducer from './reducers/productReducer';
+import userReducer from './reducers/userReducer';
+import cartReducer from './reducers/cartReducer';
 import thunk from 'redux-thunk'
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
-const store=createStore(ProductReducer, applyMiddleware(thunk))
+const rootReducer =combineReducers({
+    productInfo: productReducer,
+    userInfo: userReducer,
+    cartInfo: cartReducer
+})
+
+const store=createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
     <Provider store={store}>

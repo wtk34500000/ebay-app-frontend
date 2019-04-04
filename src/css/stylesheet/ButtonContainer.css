@@ -1,0 +1,17 @@
+.button-container {
+    display: flex;
+}
+
+.side-bar-container {
+    float: left;
+    width: 20vw;
+
+   
+}
+
+.products-list {
+    float: left;
+    width: 80vw;
+ 
+ 
+}

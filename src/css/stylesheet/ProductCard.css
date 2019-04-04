@@ -1,0 +1,13 @@
+.product-card {
+    position: relative;
+    border:1px solid black;
+    margin: 10px;
+    width: 18vw;
+    max-height: 60vh;
+    float: left;
+}
+
+/* .card-title {
+    font-size: 1em;
+} */
+

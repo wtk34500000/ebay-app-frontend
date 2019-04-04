@@ -7,10 +7,17 @@ import '../css/stylesheet/HeadContainer.css'
 const HeadContainer = () => {
     
     return (
-        <div className="head-container">
+    <div className="head-container">
+        <div>
             <Logo />
+        </div>
+        <div>
             <SearchBar />
+        </div>
+        <div >
             <UserMenu />
+        </div>
+                
         </div>
     )
 }
