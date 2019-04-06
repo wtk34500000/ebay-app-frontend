@@ -8,7 +8,6 @@ const productReducer = (state = initialState, action) => {
     switch(action.type){
         
         case "CLICK_PRODUCT":
-        console.log('production reducer', action.type)
            return {...state, currentProduct: action.payload}
       
         case "LOAD_PRODUCT":

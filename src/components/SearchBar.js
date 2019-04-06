@@ -22,7 +22,7 @@ class SearchBar extends Component {
         return (
             <div className="search-bar">
                 <input type="text" name="input" value={this.state.input} onChange={this.onChangeHandler}/>
-                <button onClick={this.onClickHandler}><i className="fas fa-search"></i></button>
+                <button id="search-button" onClick={this.onClickHandler}><i className="fas fa-search"></i></button>
             </div>
         )
     }

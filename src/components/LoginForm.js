@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Button, FormGroup, FormControl } from "react-bootstrap";
+import { withRouter } from 'react-router-dom';
 import '../css/stylesheet/Login.css'
+import { connect } from 'react-redux'
+import {loginUser} from '../actions/userAction'
 
 class LoginForm extends Component{
     state={
@@ -16,6 +19,8 @@ class LoginForm extends Component{
 
     handleSubmit = (e) => {
         e.preventDefault()
+        this.props.loginUser(this.state)
+        this.props.history.push('/econ')
         this.setState({
             email: '',
             password:''
@@ -69,4 +74,4 @@ class LoginForm extends Component{
     }
 }
 
-export default LoginForm;
+export default withRouter(connect(null, {loginUser})(LoginForm));

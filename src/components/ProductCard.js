@@ -15,7 +15,7 @@ const ProductCard = (props) => {
     const onClickHanlder = () => {
         console.log("prod card", props.productObj)
        props.clickProduct(props.productObj)
-       props.history.push(`/products/${props.productObj.title[0]}`)
+       props.history.push(`/econ/products/${props.productObj.title[0]}`)
     }
 
     return (

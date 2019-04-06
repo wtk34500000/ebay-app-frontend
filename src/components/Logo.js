@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const Logo = () => {
+const Logo = (props) => {
     return (
         <div className="logo">
-            <img id="logo-img" src={require('../images/elogo.png')} alt="logo"/>
+            <img onClick={()=> props.history.push('/econ')} id="logo-img" src={require('../images/eclogo.png')} alt="logo"/>
         </div>
     )
 }
 
-export default Logo;
+export default withRouter(Logo);

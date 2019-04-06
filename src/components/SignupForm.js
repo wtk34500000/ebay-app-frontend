@@ -39,7 +39,7 @@ class SignupForm extends Component{
                 user_name: '',
                 confirm_password: ''
             })
-        this.props.history.push('/')
+        this.props.history.push('/econ')
     }
 
     handleClick = () => {

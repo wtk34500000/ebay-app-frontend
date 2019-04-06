@@ -14,7 +14,7 @@ const ProductDetail = (props) => {
     
     const onClickHanlder = () => {    
         props.addCart(props.productObj)
-        props.history.push('/')
+        props.history.push('/econ')
     }
     
     return (
