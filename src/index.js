@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import productReducer from './reducers/productReducer';
 import userReducer from './reducers/userReducer';
 import cartReducer from './reducers/cartReducer';
+import orderReducer from './reducers/orderReducer';
 import thunk from 'redux-thunk'
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
@@ -14,7 +15,8 @@ import * as serviceWorker from './serviceWorker';
 const rootReducer =combineReducers({
     productInfo: productReducer,
     userInfo: userReducer,
-    cartInfo: cartReducer
+    cartInfo: cartReducer,
+    orderInfo: orderReducer
 })
 
 const store=createStore(rootReducer, applyMiddleware(thunk))

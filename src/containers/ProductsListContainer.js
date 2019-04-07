@@ -6,7 +6,6 @@ import '../css/stylesheet/ProductCard.css'
 
 
 const ProductsListContainerContainer = (props) => {
-    console.log('product list container', props.products)
     const arrOfProducts = props.products.map((product, idx) => <ProductCard key={idx} productObj={product}/>)
     // const newArr =[]
     // const insideNewArr=[]

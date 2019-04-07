@@ -1,4 +1,15 @@
-const addUser = (user) =>({type: "ADD_USER", payload: user})
+const ADD_USER="ADD_USER"
+// const LOAD_USER_HISTORY="LOAD_USER_HISTORY"
+const addUser = (user) =>({type: ADD_USER, payload: user})
+// const loadUserhistory =(userHistories)=>({type: LOAD_USER_HISTORY, payload: userHistories})
+
+// export const getUserHistory = (user) => {
+//     return (dispatch) => {
+//         return fetch(`http://localhost:3001/api/v1/users/${user.id}`)
+//         .then(res => res.json())
+//         .then(userInfo => dispatch(loadUserhistory(userInfo.user)))
+//     }
+// }
 
 export const createUser = (user) =>{
         return (dispatch) => {
@@ -19,7 +30,6 @@ export const createUser = (user) =>{
             })
             .then(res => res.json())
             .then(user => {
-                console.log(user)
                 localStorage.setItem("token", user.jwt)
                 dispatch(addUser(user.user))
             })
@@ -50,7 +60,6 @@ export const loginUser = (user) =>{
 }
 
 export const currentUser = (token) =>{
-    console.log("inisde currentuser")
     return (dispatch) => {
         return fetch("http://localhost:3001/api/v1/current_user", {
             method: "GET",
@@ -62,7 +71,6 @@ export const currentUser = (token) =>{
           })
             .then(resp => resp.json())
             .then(user => {
-                console.log("inside curetn user", user)
                 dispatch(addUser(user.user))
             })
         }

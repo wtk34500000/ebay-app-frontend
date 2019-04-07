@@ -5,6 +5,7 @@ const initialState={
 const cartReducer = (state = initialState, action) => {
     switch(action.type){
         case "EMPTY_CART":
+            localStorage.removeItem("cart")
             return {cart: []}
         case "LOAD_CART":
             const newArr1=action.payload
