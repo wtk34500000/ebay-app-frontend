@@ -1,0 +1,20 @@
+.home-container {
+    display: block;
+    width: 100%;
+    height: 100vh;
+}
+
+.head{
+    height: 12vh;
+    width: 100vw;
+}
+
+.nar-bar {
+    width: 100vw;
+    margin-top: 10px;
+    height: 7vh;
+}
+
+.bottom{
+    margin-top: 10px;
+}

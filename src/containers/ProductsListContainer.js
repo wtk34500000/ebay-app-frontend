@@ -1,7 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import ProductCard from '../components/ProductCard'
-import '../css/stylesheet/ProductCard.css'
+import '../css/stylesheet/ProductContainer.css'
+
 
 
 

@@ -1,20 +1,29 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import HistoryItem from './HistoryItem'
+import HistoryItem from './HistoryItem';
+import { withRouter, Link } from 'react-router-dom'
+import{ ListGroup } from 'react-bootstrap'
 
 const OrderHistoryList = (props) => {
-        const arrOfHistory = props.user.products.map(product => <HistoryItem key={product.id} productObj={product}/>)
-    
+    const getUserHis = () => {
+
+        const arrOfHistory = props.userHis.products.map(product => <ListGroup.Item><HistoryItem key={product.id} productObj={product}/></ListGroup.Item>)
+        return arrOfHistory;
+    }    
+
         return (
             <div className="order-history-list">
-                {arrOfHistory}
+                <Link to='/ecom'>Back to Home Page</Link>
+                <h1>{`${props.userHis.first_name} Order History: `}</h1>
+                <ListGroup>
+                    {getUserHis()}
+                </ ListGroup>
             </div>
         )
     }
 
-
 const mapStateToProps = (state) => {
-    return {user: state.userInfo.user}
+    return {userHis: state.userInfo.userHis}
 }
 
-export default connect(mapStateToProps)(OrderHistoryList);
+export default withRouter(connect(mapStateToProps)(OrderHistoryList));

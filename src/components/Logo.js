@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 const Logo = (props) => {
     return (
         <div className="logo">
-            <img onClick={()=> props.history.push('/econ')} id="logo-img" src={require('../images/eclogo.png')} alt="logo"/>
+            <img onClick={()=> props.history.push('/ecom')} id="logo-img" src={require('../images/eclogo.png')} alt="logo"/>
         </div>
     )
 }

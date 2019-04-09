@@ -1,15 +1,16 @@
 const ADD_USER="ADD_USER"
-// const LOAD_USER_HISTORY="LOAD_USER_HISTORY"
+const LOAD_USER_HISTORY="LOAD_USER_HISTORY"
 const addUser = (user) =>({type: ADD_USER, payload: user})
-// const loadUserhistory =(userHistories)=>({type: LOAD_USER_HISTORY, payload: userHistories})
+const loadUserhistory =(userHistories)=>({type: LOAD_USER_HISTORY, payload: userHistories})
 
-// export const getUserHistory = (user) => {
-//     return (dispatch) => {
-//         return fetch(`http://localhost:3001/api/v1/users/${user.id}`)
-//         .then(res => res.json())
-//         .then(userInfo => dispatch(loadUserhistory(userInfo.user)))
-//     }
-// }
+export const getUserHistory = (id) => {
+    console.log("2 inside getuserhistory", id)
+    return (dispatch) => {
+        return fetch(`http://localhost:3001/api/v1/users/${id}`)
+        .then(res => res.json())
+        .then(userInfo => console.log(" get user from backend", userInfo.user) || dispatch(loadUserhistory(userInfo.user)))
+    }
+}
 
 export const createUser = (user) =>{
         return (dispatch) => {
@@ -71,6 +72,7 @@ export const currentUser = (token) =>{
           })
             .then(resp => resp.json())
             .then(user => {
+                console.log("current_user", user)
                 dispatch(addUser(user.user))
             })
         }

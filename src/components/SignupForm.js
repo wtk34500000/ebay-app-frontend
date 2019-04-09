@@ -12,14 +12,13 @@ class SignupForm extends Component{
         password:'',
         first_name: '',
         last_name: '',
-        user_name: '',
-        confirm_password: ''
+        user_name: ''
     }
 
     validateForm() {
         return (this.state.email.length > 0 && this.state.password.length > 0 
             && this.state.first_name.length > 0 && this.state.last_name.length > 0
-            && this.state.user_name.length > 0 && this.state.confirm_password.length > 0);
+            && this.state.user_name.length > 0);
     }
 
     handleChange = (e) => {
@@ -36,10 +35,10 @@ class SignupForm extends Component{
                 password:'',
                 first_name: '',
                 last_name: '',
-                user_name: '',
-                confirm_password: ''
+                user_name: ''
             })
-        this.props.history.push('/econ')
+            setTimeout(()=> this.props.history.push('/ecom'), 1000)
+        
     }
 
     handleClick = () => {
@@ -106,16 +105,16 @@ class SignupForm extends Component{
                 onChange={this.handleChange}
                 />
             </FormGroup>
-            <FormGroup controlId="confirm_password">
+            {/* <FormGroup controlId="confirm_password">
                 <FormControl
                 autoFocus
                 type="password"
-                placeholder="Confirm Password Name"
+                placeholder="Confirm Password"
                 value={this.state.confirm_password}
                 name="confirm_password"
                 onChange={this.handleChange}
                 />
-            </FormGroup>
+            </FormGroup> */}
             <Button
                 block
                 disabled={!this.validateForm()}

@@ -5,6 +5,7 @@
     width: 18vw;
     max-height: 60vh;
     float: left;
+    overflow-y: auto;
 }
 
 /* .card-title {

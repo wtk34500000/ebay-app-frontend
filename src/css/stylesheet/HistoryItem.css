@@ -1,0 +1,38 @@
+.history-item {
+    display: block;
+    margin: auto;
+    width:60vw;
+    box-shadow: 4px 4px 7px gray;
+}
+
+.history-item:hover {
+    /* animation: historyItem 2s transition; */
+    transform: translateX(-4px) translateY(-3px);
+    border: 1px solid green;
+}
+
+@keyframes historyItem {
+    0%{transform: translateX(0)}
+    100%{transform: translateX(100px)}
+}
+
+.order-info {
+    display: flex;
+}
+
+.order-info div{
+    text-align: center;
+    width:100%;
+    margin: auto;
+    display: block;
+}
+
+.item-info{
+    display: flex;
+}
+.item-info div{
+    text-align: center;
+    width:100%;
+    margin:auto;
+    display: block;
+}

@@ -1,18 +1,18 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter } from 'react-router-dom';
-import {emptyCart} from '../actions/cartAction'
-// import {getUserHistory}from '../actions/userAction'
+import {emptyCart} from '../actions/cartAction';
+import { getUserHistory } from '../actions/userAction';
 
 const UserMenu = (props) => {
 
     const onClickCartHandler = () => {
-        props.history.push('/econ/cart')
+        props.history.push('/ecom/cart')
     }
 
     const onClickHisHandler = ()=>{
-        // props.getUserHistory(props.user)
-        props.history.push(`/econ/${props.user.id}/history`)
+        props.getUserHistory(props.user.id)
+        setTimeout(()=> props.history.push(`/ecom/${props.user.id}/history`), 1000)  
     }
 
     const logoutHandler = () => {
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => {
     return {cart: state.cartInfo.cart, user: state.userInfo.user}
 }
 
-export default withRouter(connect(mapStateToProps, {emptyCart})(UserMenu));
+export default withRouter(connect(mapStateToProps, {emptyCart, getUserHistory})(UserMenu));

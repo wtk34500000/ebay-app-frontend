@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 import {clickProduct} from '../actions/productAction'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom';
+import '../css/stylesheet/ProductCard.css'
 
 
 const ProductCard = (props) => {
@@ -13,9 +14,8 @@ const ProductCard = (props) => {
 
 
     const onClickHanlder = () => {
-        console.log("prod card", props.productObj)
        props.clickProduct(props.productObj)
-       props.history.push(`/econ/products/${props.productObj.title[0]}`)
+       props.history.push(`/ecom/products/${props.productObj.title[0]}`)
     }
 
     return (

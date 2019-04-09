@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 // import CartCard from './CartCard'
 import{ ListGroup } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const ComfirmationPage = (props) => {
 
@@ -16,17 +17,21 @@ const ComfirmationPage = (props) => {
 
     return (
         <div className="order-info">
-            <h1>Order Comfirmation Id: </h1>
+            <h3>Order Comfirmation Id: {props.paymentData.created} </h3>
+            <h1>Thank you for your purchase!!</h1>
             <ListGroup>
                 {getArrOfCartItems()}
             </ListGroup>
+            <Link to='/ecom'>Back to Home Page</Link>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
-    console.log("show my current order???????", state.orderInfo.order)
-    return {order: state.orderInfo.order}
+    return {
+        order: state.orderInfo.order,
+        paymentData: state.orderInfo.paymentData,
+    }
 }
 
 export default connect(mapStateToProps)(ComfirmationPage);

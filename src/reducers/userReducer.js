@@ -1,11 +1,15 @@
 const initialState={
-    user: {}
+    user: {},
+    userHis: {}
 }
 
 const userReducer = (state = initialState, action) => {
     switch(action.type){
+        case "LOAD_USER_HISTORY":
+            console.log("3 inside userreducer", action.payload, action.type)
+            return {...state, userHis: action.payload}
         case "ADD_USER":
-            return { user: action.payload }
+            return { ...state, user: action.payload }
         default:
             return state
     }

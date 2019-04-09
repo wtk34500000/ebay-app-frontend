@@ -1,3 +1,6 @@
 .products-list {
-    width: 70%;
+    float: none;
+    margin: AUTO;
+    width: 100%;
+    overflow-y: auto;
 }

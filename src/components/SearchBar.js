@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {getProducts} from '../actions/productAction'
+import {withRouter} from 'react-router-dom'
 
 class SearchBar extends Component {
     state={
@@ -14,8 +15,10 @@ class SearchBar extends Component {
     }
 
     onClickHandler = () => {
-        console.log("Clicked search")
         this.props.getProducts(this.state.input)
+        console.log(this.state.input)
+        this.props.history.push(`/ecom/search?q=${this.state.input}`)
+        // this.props.history.push(`/ecom/search/user/${this.state.input}`)
     }
 
     render(){
@@ -28,4 +31,4 @@ class SearchBar extends Component {
     }
 }
 
-export default connect(null, {getProducts})(SearchBar);
+export default withRouter(connect(null, {getProducts})(SearchBar));

@@ -16,9 +16,8 @@ const HeadContainer = () => {
         </div>
         <div >
             <UserMenu />
-        </div>
-                
-        </div>
+        </div>  
+    </div>
     )
 }
 

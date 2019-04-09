@@ -1,9 +1,10 @@
 import React from 'react'
+import FilterSearch from '../components/FilterSearch'
 
 const SideBarContainer = () => {
     return (
         <div className="side-bar-container">
-            <p>side bar ?</p>
+            <FilterSearch />
         </div>
     )
 }
