@@ -70,18 +70,32 @@ const CheckoutMenu = (props) => {
     return (
         <div className="checkout">
             <button onClick={onClickHandler} className="checkout-button">Go to Checkout</button>
-            <div className="item-price-info">
-                <p className="move-left">{`item (${props.cart.length})`}</p>
-                <p className="move-right"> {`$${getTotalPrice()}`}</p>
-            </div>
-            <div className="item-price-info">
-                <p className="move-left" >Shipping:</p> 
-                <p className="move-right">Free</p>
-            </div>
-            <hr />
-            <div className="item-price-info">
-                <p className="move-left">Total:</p>
-                <p className="move-right" >{`$${getTotalPrice()}`}</p>
+            <div className="checkout-item-info">
+                <div className="item-price-info">
+                    <div>
+                        <p>{`item (${props.cart.length})`}</p>
+                    </div>
+                    <div>
+                        <p> {`$${getTotalPrice()}`}</p>
+                    </div>
+                </div>
+                <div className="item-price-info">
+                    <div>
+                        <p>Shipping:</p> 
+                    </div>
+                    <div>
+                        <p>Free</p>
+                    </div>
+                </div>
+                <hr />
+                <div className="item-price-info">
+                    <div>
+                        <p>Total:</p>
+                    </div>
+                    <div>
+                        <p>{`$${getTotalPrice()}`}</p>
+                    </div>
+                </div>
             </div>
         </div>
     )

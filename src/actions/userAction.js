@@ -72,7 +72,6 @@ export const currentUser = (token) =>{
           })
             .then(resp => resp.json())
             .then(user => {
-                console.log("current_user", user)
                 dispatch(addUser(user.user))
             })
         }

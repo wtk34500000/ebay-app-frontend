@@ -18,8 +18,6 @@ class PaymentForm extends Component {
     }
 
     componentDidUpdate(prevState, prevProps){
-        console.log("preProps", prevProps)
-        console.log("prevState", prevState)
         if(this.props.paymentData!== prevProps.paymentData){
          this.props.history.push('/ecom/cart/checkout/comfirmation')
         }
@@ -71,7 +69,7 @@ class PaymentForm extends Component {
                 <form onSubmit={this.handleSubmit} className="form-group mt-3 border border-promary rounded shadow-lg p-3">
                     <input type="text" className="input-group my-1 p-1 border border-dark" name="name" placeholder="Name" value={this.state.name} onChange={this.handleOnChange}/>
                     <input type="text" className="input-group my-1 p-1 border border-dark" placeholder="Amount" value={this.state.amount} onChange={this.handleOnChange}/>
-                    <label>CC Number -- Exp. Date ---- CVC</label>
+                    <label>CC Number -- Exp. Date ---- CVC <i class="fab fa-cc-visa" style={{color: "black"}}></i>  <i class="fab fa-cc-mastercard" style={{color: "red"}}></i>  <i class="fab fa-cc-amex" style={{color: "blue"}}></i></label>
                     <CardElement className="p-2 border border-dark"/>
                     <button className="btn btn-primary border border-darl shadow mt-3">Charge It!</button>
                 </form>

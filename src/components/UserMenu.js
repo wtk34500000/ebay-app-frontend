@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter } from 'react-router-dom';
 import {emptyCart} from '../actions/cartAction';
 import { getUserHistory } from '../actions/userAction';
+import {Dropdown} from 'react-bootstrap'
 
 const UserMenu = (props) => {
 
@@ -23,10 +24,21 @@ const UserMenu = (props) => {
 
     return (
         <div className="user-menu">
-            <text>{props.user? props.user.first_name:""}</text>
-            <button className="menu-item" onClick={onClickHisHandler}><i className="fas fa-folder"></i></button>
+            {/* <text>{props.user? props.user.first_name:""}</text>
+            <button className="menu-item" onClick={onClickHisHandler}><i className="fas fa-folder"></i></button> */}
             <button className="menu-item" onClick={onClickCartHandler}><i className="fas fa-cart-plus"></i>{`(${props.cart.length})`}</button>
-            <button onClick={logoutHandler} className="menu-item">Logout</button> 
+            <Dropdown>
+                <Dropdown.Toggle variant="Info" id="dropdown-basic">
+                {props.user? props.user.first_name:""} <i class="fas fa-user-cog"></i>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                    <Dropdown.Item >PROFILE</Dropdown.Item>
+                    <Dropdown.Item onClick={onClickHisHandler}><i className="fas fa-folder"></i></Dropdown.Item>
+                    <Dropdown.Item onClick={logoutHandler}>LOGOUT</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>
+            {/* <button onClick={logoutHandler} className="menu-item">Logout</button>  */}
         </div>
     )
 }

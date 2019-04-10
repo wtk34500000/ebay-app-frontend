@@ -53,3 +53,7 @@
 .menu-item {
     height: 5vh;
 }
+.menu-item{
+    background-color: rgb(17, 122, 148);
+    border: none;
+}

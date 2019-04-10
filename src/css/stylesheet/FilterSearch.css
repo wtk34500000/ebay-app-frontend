@@ -1,0 +1,11 @@
+#slider{
+    width: 30%;
+}
+
+#filter-label {
+    background-color: lightgrey;
+}
+
+#filter-label label{
+    color: black;
+}

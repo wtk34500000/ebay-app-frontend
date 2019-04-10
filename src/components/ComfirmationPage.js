@@ -16,9 +16,10 @@ const ComfirmationPage = (props) => {
     }
 
     return (
-        <div className="order-info">
+        <div id="order-info">
             <h3>Order Comfirmation Id: {props.paymentData.created} </h3>
             <h1>Thank you for your purchase!!</h1>
+            
             <ListGroup>
                 {getArrOfCartItems()}
             </ListGroup>

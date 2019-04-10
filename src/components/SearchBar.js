@@ -16,9 +16,7 @@ class SearchBar extends Component {
 
     onClickHandler = () => {
         this.props.getProducts(this.state.input)
-        console.log(this.state.input)
         this.props.history.push(`/ecom/search?q=${this.state.input}`)
-        // this.props.history.push(`/ecom/search/user/${this.state.input}`)
     }
 
     render(){

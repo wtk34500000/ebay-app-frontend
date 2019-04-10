@@ -19,8 +19,10 @@ const CartCard = (props) => {
             <div className="card-info">
                 <p>{props.productObj.title[0]}</p>
             </div>
-            <div className="remove-button">
-                <p>Price: {`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`}</p>
+            <div className="card-info">
+            <p>Price: {`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`}</p>
+            </div>
+            <div className="card-info remove-button">
                 <button onClick={onClickHandler}>Remove</button>
             </div>
                 
