@@ -19,7 +19,7 @@ export const getProducts= (input)=> {
         // url += "&callback=_cb_findItemsByKeywords";
         url += "&REST-PAYLOAD";
         url += `&keywords=${input}`;
-        url += "&paginationInput.entriesPerPage=25";
+        url += "&paginationInput.entriesPerPage=100";
 
     //   return  fetch(url)
     //             .then(res =>res.text())

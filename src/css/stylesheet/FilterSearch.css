@@ -2,10 +2,10 @@
     width: 30%;
 }
 
-#filter-label {
-    background-color: lightgrey;
+#filter-button {
+    /* background-color: red; */
 }
 
-#filter-label label{
+#filter-button button{
     color: black;
 }

@@ -19,8 +19,6 @@ import './App.css';
 
 class App extends Component {
 
-  // var storedNames = JSON.parse(localStorage.getItem("names"))
-
   componentDidMount = () => {
     const token = localStorage.token;
     const cart = JSON.parse(localStorage.getItem("cart"))
@@ -45,6 +43,7 @@ class App extends Component {
               <Route  path ='/ecom/:name/history' component={OrderHistory} />
               <Route  path ='/ecom/cart/checkout' component={PaymentForm} />
               <Route  path ='/ecom/cart' component={Cart} />
+              <Route  path ='/ecom/profile' component={""} />
               <Route  path ='/ecom' component={HomeContainer} />
               <Route  path ='/login' component={Login} />
               <Route  path ='/signup' component={Signup} />

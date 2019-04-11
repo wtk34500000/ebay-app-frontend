@@ -8,7 +8,8 @@ import '../css/stylesheet/FilterSearch.css';
 
 class FilterSearch extends Component {
      state = {
-        volume: 0
+        volume: 0,
+        isClicked: false
       }
 
     handleOnChange = (value) => {
@@ -18,6 +19,12 @@ class FilterSearch extends Component {
         volume: value
       })
 
+    }
+
+    handleFilterButton= () => {
+        this.setState({
+            isClicked: !this.state.isClicked
+        })
     }
    
     render() {
@@ -29,18 +36,18 @@ class FilterSearch extends Component {
       return (
 
           <div id="slider">
-            <div id="filter-label">
-                <label>Filter by price: </label>
+            <div id="filter-button">
+                <button onClick={this.handleFilterButton}>Filter by price: </button>
             </div>
             <div>
-                <Slider
+                {this.state.isClicked? <Slider
                     min={min+1}
                     max={max+1}
                     value={volume}
                     step={step}
                     labels={labels}
                     onChange={this.handleOnChange}
-                />
+                />: null}
             </div>
           </div>
         

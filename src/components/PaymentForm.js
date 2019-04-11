@@ -7,7 +7,9 @@ import { withRouter } from 'react-router-dom'
 class PaymentForm extends Component {
     state={
         name: "",
-        amount: ''
+        amount: '',
+        email: '',
+        error: ''
     }
 
     componentDidMount(){
@@ -37,22 +39,17 @@ class PaymentForm extends Component {
             
            this.props.stripe.createToken({name: this.state.name}).then(({token}) => {
                console.log("here???$$$$$",token)
-                const name=this.state.name
-                const amount= this.state.amount
-                const tokenId=token.id
-                this.props.postCheckout(name, amount, tokenId)
-                // this.props.history.push('/ecom/cart/checkout/comfirmation')
-                // fetch("http://localhost:3001/api/v1/donate", {
-                //     method: "POST",
-                //     headers: {
-                //         "content-type": "application/json"
-                //     },
-                //     body: JSON.stringify({
-                //         name: this.state.name,
-                //         amount: this.state.amount,
-                //         stripeToken: token.id
-                //     })
-                // }).then(res => res.json()).then()
+                if(token){
+                    const name=this.state.name
+                    const amount= this.state.amount
+                    const tokenId=token.id
+                    const email=this.state.email
+                    this.props.postCheckout(name, amount, tokenId, email)
+                }else{
+                   this.setState({
+                        error: 'Invalid credit card'
+                   }, ()=>this.props.history.push('/ecom/cart/checkout'))
+                }
               })
             //   , () =>  this.props.history.push('/ecom/cart/checkout/comfirmation')
         } catch(e) {
@@ -67,8 +64,10 @@ class PaymentForm extends Component {
         return(
             <main className="container">
                 <form onSubmit={this.handleSubmit} className="form-group mt-3 border border-promary rounded shadow-lg p-3">
+                    {this.state.error? <li>{this.state.error}</li> : ''}
                     <input type="text" className="input-group my-1 p-1 border border-dark" name="name" placeholder="Name" value={this.state.name} onChange={this.handleOnChange}/>
                     <input type="text" className="input-group my-1 p-1 border border-dark" placeholder="Amount" value={this.state.amount} onChange={this.handleOnChange}/>
+                    <input type="text" className="input-group my-1 p-1 border border-dark" placeholder="Email address" name="email" value={this.state.email} onChange={this.handleOnChange}/>
                     <label>CC Number -- Exp. Date ---- CVC <i class="fab fa-cc-visa" style={{color: "black"}}></i>  <i class="fab fa-cc-mastercard" style={{color: "red"}}></i>  <i class="fab fa-cc-amex" style={{color: "blue"}}></i></label>
                     <CardElement className="p-2 border border-dark"/>
                     <button className="btn btn-primary border border-darl shadow mt-3">Charge It!</button>

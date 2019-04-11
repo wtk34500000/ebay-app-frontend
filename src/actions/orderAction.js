@@ -6,7 +6,7 @@ export const addOrder = (cart, price) => ({type: ADD_ORDER, payload: {price, car
 export const checkOut = (paymentData) => ({type: CHECK_OUT, payload: paymentData})
 
 
-export const postCheckout = (name, amount, tokenId) => {
+export const postCheckout = (name, amount, tokenId, email) => {
     return (dispatch) =>{
         return fetch("http://localhost:3001/api/v1/donate", {
                 method: "POST",
@@ -16,13 +16,14 @@ export const postCheckout = (name, amount, tokenId) => {
                 body: JSON.stringify({
                     name: name,
                     amount: amount,
-                    stripeToken: tokenId
+                    stripeToken: tokenId,
+                    email: email
                 })
             }).then(res => res.json()).then(paymentData => {
                 console.log('payment data from backend', paymentData)
                 
                 dispatch(checkOut(paymentData))
-                
+
 
             }
                  )

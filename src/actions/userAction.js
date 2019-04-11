@@ -53,7 +53,6 @@ export const loginUser = (user) =>{
         })
         .then(res => res.json())
         .then(user => {
-            console.log(user)
             localStorage.setItem("token", user.jwt)
             dispatch(addUser(user.user))
         })

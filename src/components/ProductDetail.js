@@ -15,7 +15,7 @@ const ProductDetail = (props) => {
     
     const onClickHanlder = () => {    
         props.addCart(props.productObj)
-        props.history.push('/ecom')
+        props.history.goBack()
     }
     
     return (
