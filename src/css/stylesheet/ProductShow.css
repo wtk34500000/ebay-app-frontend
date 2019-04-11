@@ -89,5 +89,24 @@
     color: #0079bc;
 }
 
+#show-related-list{
+    margin-top: 3vh;
+}
+
+ #show-suggest-list{
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 80%;
+    margin: auto;
+    box-shadow: 4px 4px 7px gray;
+}
+
+.minicard-img {
+    margin: 0.5vw;
+    box-shadow: 4px 4px 4px lightgray;
+    /* border: 1px solid red; */
+}
+
 
 

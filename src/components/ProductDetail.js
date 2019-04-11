@@ -4,6 +4,7 @@ import {addCart} from '../actions/cartAction';
 import { withRouter, Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 import '../css/stylesheet/ProductShow.css'
+import ShowSuggestList from '../containers/ShowSuggestList';
 
 
 
@@ -20,6 +21,7 @@ const ProductDetail = (props) => {
     
     return (
         <div className="product-container">
+            
             <div className="home-page">
                 <Link to='/ecom'><span>Back to Home Page</span></Link>
             </div>
@@ -45,26 +47,14 @@ const ProductDetail = (props) => {
                             <button onClick={onClickHanlder} >Add to Cart</button>
                         </div>
                     </div>
-                   
-                        <div className="wish-button"> 
-                                <button><i class="far fa-heart"></i> Add to Wish list</button>
-                        </div>
-                   
-                    
+                    <div className="wish-button"> 
+                            <button><i class="far fa-heart"></i> Add to Wish list</button>
+                    </div>
                 </div>
             </div>
- {/* <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={img} />
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>
-                    Condition: {condition}
-                    <br />
-                    Price: {price}
-                </Card.Text>
-                <Button onClick={onClickHanlder} variant="primary">Add to Cart</Button>
-            </Card.Body>
-            </Card> */}
+            <div id="show-related-list">
+                    <ShowSuggestList />
+            </div>
         </div>
         
     )
