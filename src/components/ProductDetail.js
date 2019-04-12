@@ -1,5 +1,4 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap';
 import {addCart} from '../actions/cartAction';
 import { withRouter, Link } from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -16,10 +15,6 @@ const ProductDetail = (props) => {
         condition = props.productObj.condition[0].conditionDisplayName[0]
         price=`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`
     }
-    // const title=props.productObj.title[0]
-    // const img =props.productObj.galleryURL[0]
-    // const condition = props.productObj.condition[0].conditionDisplayName[0]
-    // const price=`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`
     
     const onClickHanlder = () => {    
         props.addCart(props.productObj)
@@ -35,7 +30,7 @@ const ProductDetail = (props) => {
 
             <div id="product-item">
                 <div className="product-img">
-                    <img src={img}/>
+                    <img src={img} alt=""/>
                 </div>
 
                 <div className="product-info">

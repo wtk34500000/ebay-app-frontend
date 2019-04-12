@@ -29,7 +29,7 @@ const UserMenu = (props) => {
             <button className="menu-item" onClick={onClickCartHandler}><i className="fas fa-cart-plus"></i>{`(${props.cart.length})`}</button>
             <Dropdown>
                 <Dropdown.Toggle variant="Info" id="dropdown-basic">
-                {props.user? props.user.first_name:""} <i class="fas fa-user-cog"></i>
+                {props.user? props.user.first_name:""} <i className="fas fa-user-cog"></i>
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>

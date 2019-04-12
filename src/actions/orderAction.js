@@ -20,11 +20,8 @@ export const postCheckout = (name, amount, tokenId, email) => {
                     email: email
                 })
             }).then(res => res.json()).then(paymentData => {
-                console.log('payment data from backend', paymentData)
-                
+                console.log('payment data from backend', paymentData)       
                 dispatch(checkOut(paymentData))
-
-
             }
                  )
     }

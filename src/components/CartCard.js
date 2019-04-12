@@ -5,9 +5,7 @@ import {connect} from 'react-redux';
 
 const CartCard = (props) => {
     
-    console.log(props.productObj)
     const onClickHandler = () => {
-        console.log("click")
         props.removeProduct(props.productObj.title[0])
     }
 

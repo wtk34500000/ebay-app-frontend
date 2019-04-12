@@ -28,10 +28,8 @@ class App extends Component {
         this.props.loadCart(cart)
       }
         this.props.currentUser(token)
-        console.log(" token is true")
         this.props.history.push("/ecom")
     }else{
-      console.log(" token is false")
         this.props.history.push("/signup");
     }
   };
