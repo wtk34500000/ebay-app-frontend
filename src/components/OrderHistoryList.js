@@ -5,19 +5,28 @@ import { withRouter, Link } from 'react-router-dom'
 import{ ListGroup } from 'react-bootstrap'
 
 const OrderHistoryList = (props) => {
-    const getUserHis = () => {
+    // if(props.userHis.products === undefined){
+    //     props.history.push('/ecom')
+    // }
 
+    const getUserHis = () => {
         const arrOfHistory = props.userHis.products.map(product => <ListGroup.Item><HistoryItem key={product.id} productObj={product}/></ListGroup.Item>)
         return arrOfHistory;
     }    
 
         return (
-            <div className="order-history-list">
-                <Link to='/ecom'>Back to Home Page</Link>
-                <h1>{`${props.userHis.first_name} Order History: `}</h1>
-                <ListGroup>
-                    {getUserHis()}
-                </ ListGroup>
+            <div >
+                {
+                    props.userHis.products!==undefined ? 
+                    <div className="order-history-list">
+                        <Link to='/ecom'>Back to Home Page</Link>
+                        <h1>{`${props.userHis.first_name} Order History: `}</h1>
+                        <ListGroup>
+                            {getUserHis()}
+                        </ ListGroup>
+                    </div>
+                : props.history.push('/ecom')
+                }
             </div>
         )
     }

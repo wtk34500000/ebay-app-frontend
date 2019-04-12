@@ -1,7 +1,7 @@
 const initialState={
     products: [],
     searchTerm: "",
-    currentProduct:{},
+    currentProduct: null,
     productFilterArr: []
 }
 

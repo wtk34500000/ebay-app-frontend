@@ -8,11 +8,6 @@ import {connect} from 'react-redux'
 import '../css/stylesheet/HomeContainer.css'
 
 class HomeContainer extends Component{
-    componentDidMount(){
-        if(!this.props.user.id){
-            this.props.history.push('/signup')
-        }
-    }
 
     render(){
         return (

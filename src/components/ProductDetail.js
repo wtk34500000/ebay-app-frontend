@@ -9,10 +9,17 @@ import ShowSuggestList from '../containers/ShowSuggestList';
 
 
 const ProductDetail = (props) => {
-    const title=props.productObj.title[0]? props.productObj.title[0]: " N/A"
-    const img =props.productObj.galleryURL[0]? props.productObj.galleryURL[0]: " N/A"
-    const condition = props.productObj.condition? props.productObj.condition[0].conditionDisplayName[0]: " N/A"
-    const price=`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`? `${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`: "N/A"
+    let title, img, condition, price;
+    if(props.productObj){
+        title=props.productObj.title[0]
+        img =props.productObj.galleryURL[0]
+        condition = props.productObj.condition[0].conditionDisplayName[0]
+        price=`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`
+    }
+    // const title=props.productObj.title[0]
+    // const img =props.productObj.galleryURL[0]
+    // const condition = props.productObj.condition[0].conditionDisplayName[0]
+    // const price=`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`
     
     const onClickHanlder = () => {    
         props.addCart(props.productObj)

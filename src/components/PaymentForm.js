@@ -13,9 +13,9 @@ class PaymentForm extends Component {
     }
 
     componentDidMount(){
-        console.log("totalPrice", this.props.totalPrice)
+
         this.setState({
-            amount: this.props.totalPrice
+            amount: Math.ceil(this.props.totalPrice)
         })
     }
 

@@ -69,7 +69,7 @@
 
 .price-button{
     display: flex;
-    background-color: lightgray
+    background-color: lightgray;
 }
 
 .cart-button button{

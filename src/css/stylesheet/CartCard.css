@@ -40,8 +40,12 @@
 }
 
 .checkout{
-    max-height: 20vh;
+    max-height: 25vh;
     overflow-y: auto;
+}
+
+.checkout:hover {
+    border: 1px solid green;
 }
 
 .checkout-button {

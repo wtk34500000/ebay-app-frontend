@@ -12,7 +12,7 @@ const CheckoutMenu = (props) => {
                const price=item.sellingStatus && item.sellingStatus[0].currentPrice[0]["__value__"] ? Number(item.sellingStatus[0].currentPrice[0]["__value__"]) : 0
                totalPrice+=price
         })
-        return totalPrice
+        return totalPrice.toFixed(2);
     }
     
 
@@ -87,13 +87,21 @@ const CheckoutMenu = (props) => {
                         <p>Free</p>
                     </div>
                 </div>
+                <div className="item-price-info">
+                    <div>
+                        <p>Fee:</p> 
+                    </div>
+                    <div>
+                        <p>{`$${(Math.ceil(getTotalPrice())-getTotalPrice()).toFixed(2)}`}</p>
+                    </div>
+                </div>
                 <hr />
                 <div className="item-price-info">
                     <div>
                         <p>Total:</p>
                     </div>
                     <div>
-                        <p>{`$${getTotalPrice()}`}</p>
+                        <p>{`$${Math.ceil(getTotalPrice())}`}</p>
                     </div>
                 </div>
             </div>
