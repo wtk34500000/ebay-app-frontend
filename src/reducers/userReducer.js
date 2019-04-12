@@ -1,6 +1,7 @@
 const initialState={
     user: {},
-    userHis: {}
+    userHis: {},
+    wishList: []
 }
 
 const userReducer = (state = initialState, action) => {

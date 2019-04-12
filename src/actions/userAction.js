@@ -1,7 +1,9 @@
 const ADD_USER="ADD_USER"
 const LOAD_USER_HISTORY="LOAD_USER_HISTORY"
+const ADD_TO_WISH_LIST="ADD_TO_WISH_LIST"
 const addUser = (user) =>({type: ADD_USER, payload: user})
 const loadUserhistory =(userHistories)=>({type: LOAD_USER_HISTORY, payload: userHistories})
+export const addToWishList =(prod) => ({type:ADD_TO_WISH_LIST, payload: prod })
 
 export const getUserHistory = (id) => {
     console.log("2 inside getuserhistory", id)
