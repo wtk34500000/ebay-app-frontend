@@ -25,7 +25,7 @@ const BottomContainer = (props) => {
                     < Route exact path ='/ecom/search' render={()=> {
                                                             return <div>
                                                                         <SideBarContainer/>, 
-                                                                        <ProductsListContainer products={props.products}/>
+                                                                       {props.products.length>0? <ProductsListContainer products={props.products}/>: <h1>Loading.........</h1>}
                                                                   </div>
                                                                 
                                                                 }} />

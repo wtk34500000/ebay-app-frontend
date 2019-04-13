@@ -7,7 +7,7 @@ const CartList = (props) => {
     const arrOfCartItems = props.cart.map((prod, idx) =>  <CartCard key={idx} productObj={prod}/>)
     return (
         <div className="cart-list">
-            <h2>{`Shopping Cart (${arrOfCartItems.length} item(s))`}</h2>
+            <h2>{`Shopping Cart ${arrOfCartItems.length} item(s)`}</h2>
             {arrOfCartItems.length < 1? <h3>You dont have any items in your cart.</h3>: " "}
             {arrOfCartItems.length < 1? <button onClick={()=>props.history.push('/ecom')}>Start Shopping</button>:""}
             {arrOfCartItems}   

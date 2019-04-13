@@ -1,9 +1,10 @@
 import React from 'react'
-import {addCart} from '../actions/cartAction';
+import { addCart } from '../actions/cartAction';
 import { withRouter, Link } from 'react-router-dom';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import '../css/stylesheet/ProductShow.css'
 import ShowSuggestList from '../containers/ShowSuggestList';
+import { addToWishList } from '../actions/userAction'
 
 
 
@@ -21,6 +22,11 @@ const ProductDetail = (props) => {
         props.history.goBack()
     }
     
+    const addToWishListHandler =()=>{
+        console.log("clicked on wish button")
+        props.addToWishList(props.productObj)
+    }
+
     return (
         <div className="product-container">
             
@@ -50,7 +56,7 @@ const ProductDetail = (props) => {
                         </div>
                     </div>
                     <div className="wish-button"> 
-                            <button><i class="far fa-heart"></i> Add to Wish list</button>
+                            <button onClick={addToWishListHandler}><i class="far fa-heart"></i> Add to Wish list</button>
                     </div>
                 </div>
             </div>
@@ -69,4 +75,4 @@ const mapStateToProps = (state) =>{
         }
   }
 
-export default withRouter(connect(mapStateToProps, {addCart})(ProductDetail));
+export default withRouter(connect(mapStateToProps, { addCart, addToWishList })(ProductDetail));

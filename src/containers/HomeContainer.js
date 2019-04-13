@@ -15,7 +15,7 @@ class HomeContainer extends Component{
                 <div className="head">
                     <HeadContainer />
                 </div>
-    
+                <hr />
                 <div className="nar-bar">
                     <NarBar />
                 </div>

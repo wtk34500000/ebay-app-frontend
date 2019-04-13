@@ -1,18 +1,21 @@
 .home-container {
     display: block;
-    width: 100%;
+    width: 80vw;
+    margin:auto;
     height: 100vh;
 }
 
 .head{
-    height: 12vh;
-    width: 100vw;
+    height: 10vh;
+    width: 100%;
+    margin:auto;
 }
 
 .nar-bar {
-    width: 100vw;
+    width: 100%;
     margin-top: 10px;
     height: 7vh;
+    margin:auto;
 }
 
 .bottom{

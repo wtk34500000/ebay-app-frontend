@@ -37,8 +37,7 @@ export const getProducts= (input)=> {
        return fetchJsonp(url)
         .then(res=> res.json())
         .then(data => dispatch(loadProduct(data.findItemsByKeywordsResponse[0].searchResult[0].item)))
-        .catch(function(ex) {
-        console.log('failed', ex);
-        });
+        .catch((ex)=>console.log('failed', ex)
+        );
     }
 }
