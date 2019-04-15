@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {getProducts} from '../actions/productAction'
 import {withRouter} from 'react-router-dom'
-import {FormControl, Button, Form} from "react-bootstrap";
+import {Button, Form} from "react-bootstrap";
+import '../css/stylesheet/SearchBar.css'
 
 
 class SearchBar extends Component {
@@ -26,7 +27,7 @@ class SearchBar extends Component {
         return (
             // <div >
                 <Form inline>
-                    <FormControl type="text" name="input" value={this.state.input} onChange={this.onChangeHandler} placeholder="Search" className="mr-sm-2" />
+                    <Form.Control type="text" size="lg" name="input" value={this.state.input} onChange={this.onChangeHandler} placeholder="Search" className="mr-sm-2" />
                     <Button onClick={this.onClickHandler} variant="outline-primary"><i className="fas fa-search"></i></Button>
 
                     {/* <form className="search-bar" onSubmit={this.onClickHandler}>

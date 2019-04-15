@@ -1,10 +1,79 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import '../css/stylesheet/Profile.css'
+import {emptyCart} from '../actions/cartAction'
+import { Link, withRouter } from 'react-router-dom'
+import { getUserHistory } from '../actions/userAction'
 
-const Profile = () => {
+const Profile = (props) => {
+
+    const logoutHandler = () => {
+        localStorage.clear()
+        props.emptyCart()
+        props.history.push('/signup')
+    }
+
+    const onClickHisHandler = ()=>{
+        props.getUserHistory(props.user.id)
+        setTimeout(()=> props.history.push(`/ecom/${props.user.id}/history`), 500)
+        
+    }
+
     return (
-        <div className="profile">
-            <h1>Hello World!</h1>
+        <div className="container">
+            <div className="row profile">
+                <div className="col-md-3">
+                <div className="profile-sidebar">
+                  
+                    <div className="profile-userpic">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" className="img-responsive" alt="" />
+                    </div>
+                 
+                    <div className="profile-usertitle">
+                        <div className="profile-usertitle-name">
+                            {props.user.user_name}
+                        </div>
+                        <div className="profile-usertitle-job">
+                            {props.user.email}
+                        </div>
+                    </div>
+                 
+                    <div className="profile-userbuttons">
+                        <button type="button" className="btn btn-success btn-sm">Edit</button>
+                        <button onClick={logoutHandler} type="button" className="btn btn-danger btn-sm">Logout</button>
+                    </div>
+         
+                    <div className="profile-usermenu">
+                        <ul className="nav">
+                            <li className="active">
+                                <Link to="/ecom"><i className="fas fa-home"></i> Home </Link>
+                            </li>
+                            <li>
+                                <Link to='' onClick={onClickHisHandler}><i className="fas fa-history"></i> History </Link>
+                            </li>
+                            <li>
+                                <Link to={`/ecom/${props.user.id}/wishlist`}><i className="fas fa-heart"></i> Wish List </Link>
+                            </li>
+                            <li>
+                                <Link to="#"> <i className="fas fa-info"></i> Help </Link>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </div>
+            </div>
+            <div className="col-md-9">
+                <div className="profile-content">
+                   Some user related content goes here...
+                </div>
+            </div>
         </div>
+    </div>
     )
 }
-export default Profile;
+
+const mapStateToProps = (state) => {
+    return {user: state.userInfo.user }
+}
+
+export default withRouter(connect(mapStateToProps, { emptyCart, getUserHistory })(Profile));

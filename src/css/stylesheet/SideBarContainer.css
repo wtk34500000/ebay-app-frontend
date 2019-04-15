@@ -1,0 +1,14 @@
+.side-bar-container {
+    display: flex;
+
+}
+
+.side-bar-left {
+    width: 40vw;
+    margin: auto;
+}
+
+.side-bar-right{
+    width: 40vw;
+    margin: auto;
+}

@@ -3,18 +3,19 @@ const LOAD_USER_HISTORY="LOAD_USER_HISTORY"
 const ADD_TO_WISH_LIST="ADD_TO_WISH_LIST"
 const REMOVE_FROM_WISH_LIST ="REMOVE_FROM_WISH_LIST"
 const LOAD_WISH_LIST ="LOAD_WISH_LIST"
+
 const addUser = (user) =>({type: ADD_USER, payload: user})
 const loadUserhistory =(userHistories)=>({type: LOAD_USER_HISTORY, payload: userHistories})
+
 export const addToWishList =(prod) => ({type:ADD_TO_WISH_LIST, payload: prod })
 export const removeFromWishList = (prod) => ({type: REMOVE_FROM_WISH_LIST, payload: prod})
 export const loadWishList= (wishArr) => ({type: LOAD_WISH_LIST,  payload: wishArr})
 
 export const getUserHistory = (id) => {
-    console.log("2 inside getuserhistory", id)
     return (dispatch) => {
         return fetch(`http://localhost:3001/api/v1/users/${id}`)
         .then(res => res.json())
-        .then(userInfo => console.log(" get user from backend", userInfo.user) || dispatch(loadUserhistory(userInfo.user)))
+        .then(userInfo => dispatch(loadUserhistory(userInfo.user)))
     }
 }
 

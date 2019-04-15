@@ -32,31 +32,12 @@ const UserMenu = (props) => {
 
     return (
         <NavDropdown title={props.user.first_name } id="basic-nav-dropdown">
-            {/* <Dropdown.Toggle variant="Info" id="dropdown-basic">
-                {props.user? props.user.first_name:""} <i className="fas fa-user-cog"></i>
-               </Dropdown.Toggle> */}
                     <Dropdown.Item onClick={onClickCartHandler}>CART <i className="fas fa-cart-plus"></i>{`(${props.cart.length})`}</Dropdown.Item>
                     <Dropdown.Item onClick={onClickProfileHandler}>PROFILE <i className="fas fa-user"></i></Dropdown.Item>
                     <Dropdown.Item onClick={onClickHisHandler}> HISTORY <i className="fas fa-folder"></i></Dropdown.Item>
                     <Dropdown.Item onClick={wishListHandler}>WISHLIST <i className="far fa-heart"></i></Dropdown.Item>
                     <Dropdown.Item onClick={logoutHandler}>LOGOUT <i className="fas fa-sign-out-alt"></i></Dropdown.Item>
-             {/* <button className="menu-item" onClick={onClickCartHandler}><i className="fas fa-cart-plus"></i>{`(${props.cart.length})`}</button> */}
         </NavDropdown>
-        // <div className="user-menu">
-        //     <button className="menu-item" onClick={onClickCartHandler}><i className="fas fa-cart-plus"></i>{`(${props.cart.length})`}</button>
-        //     <Dropdown>
-        //         <Dropdown.Toggle variant="Info" id="dropdown-basic">
-        //         {props.user? props.user.first_name:""} <i className="fas fa-user-cog"></i>
-        //         </Dropdown.Toggle>
-        //         <Dropdown.Menu>
-        //             <Dropdown.Item onClick={onClickProfileHandler}>PROFILE <i className="fas fa-user"></i></Dropdown.Item>
-        //             <Dropdown.Item onClick={onClickHisHandler}> HISTORY <i className="fas fa-folder"></i></Dropdown.Item>
-        //             <Dropdown.Item onClick={wishListHandler}>WISHLIST <i className="far fa-heart"></i></Dropdown.Item>
-        //             <Dropdown.Item onClick={logoutHandler}>LOGOUT <i className="fas fa-sign-out-alt"></i></Dropdown.Item>
-        //         </Dropdown.Menu>
-        //     </Dropdown>
-            
-        // </div>
     )
 }
 

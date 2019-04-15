@@ -1,12 +1,16 @@
-
 import fetchJsonp from 'fetch-jsonp';
 
 export const FILTER_PRODUCT = "FILTER_PRODUCT";
 
+const CATEGORY_PRODUCT="CATEGORY_PRODUCT";
+const CLICK_PRODUCT="CLICK_PRODUCT";
+
 
 const loadProduct = (products) => {return {type: "LOAD_PRODUCT", payload: products}}
-export const clickProduct = (prod) => ({type: "CLICK_PRODUCT", payload: prod})
+
+export const clickProduct = (prod) => ({type: CLICK_PRODUCT, payload: prod})
 export const filterProduct = (filteredVal) => ({type:FILTER_PRODUCT, payload: filteredVal})
+export const CategoryProduct =(value)=> ({type:CATEGORY_PRODUCT, payload: value})
 
 export const getProducts= (input)=> {
     return (dispatch)=> {

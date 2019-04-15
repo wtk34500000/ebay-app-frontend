@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import {clickProduct} from '../actions/productAction'
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom';
@@ -7,8 +7,9 @@ import '../css/stylesheet/ProductCard.css'
 
 
 const ProductCard = (props) => {
+    console.log(props.productObj)
     const title=props.productObj.title[0]? props.productObj.title[0]: " N/A"
-    const img =props.productObj.galleryURL[0].length>0? props.productObj.galleryURL[0]: " N/A"
+    const img =props.productObj.galleryURL && props.productObj.galleryURL[0].length>0? props.productObj.galleryURL[0]: " N/A"
     const condition = props.productObj.condition? props.productObj.condition[0].conditionDisplayName[0]: " N/A"
     const price=props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"] && props.productObj.sellingStatus[0].currentPrice[0]["__value__"] ? `${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`: "N/A"
 
@@ -19,7 +20,7 @@ const ProductCard = (props) => {
     }
 
     return (
-        <div className="product-card">
+        <div className="product-card" onClick={onClickHanlder}>
             <Card style={{ height: '30rem'}}>
             <Card.Img variant="top" src={img} />
             <Card.Body>
@@ -29,7 +30,7 @@ const ProductCard = (props) => {
                     <br />
                     Price: {price}
                 </Card.Text>
-                <Button onClick={onClickHanlder} variant="primary">Detail</Button>
+                {/* <Button onClick={onClickHanlder} variant="primary">Detail</Button> */}
             </Card.Body>
             </Card>
 
