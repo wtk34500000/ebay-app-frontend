@@ -14,10 +14,9 @@ import {connect} from 'react-redux'
 import PaymentForm from './components/PaymentForm'
 import WishList from './components/WishList'
 import Profile from './components/Profile'
-
+import LandingPage from './components/LandingPage'
 
 import './App.css';
-
 
 class App extends Component {
 
@@ -35,7 +34,7 @@ class App extends Component {
         this.props.currentUser(token)
         this.props.history.push("/ecom")
     }else{
-        this.props.history.push("/signup");
+        this.props.history.push("/");
     }
   };
 
@@ -43,7 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-              <Route  path ='/ecom/cart/checkout/comfirmation' component={ComfirmationPage } />
+              <Route  path ='/ecom/cart/checkout/comfirmation' component={ComfirmationPage} />
               <Route  path ='/ecom/products/:name' component={ProductItem} />
               <Route  path ='/ecom/:id/profile' component={Profile} />
               <Route  path ='/ecom/:name/wishlist' component={WishList} />
@@ -53,6 +52,7 @@ class App extends Component {
               <Route  path ='/ecom' component={HomeContainer} />
               <Route  path ='/login' component={Login} />
               <Route  path ='/signup' component={Signup} />
+              <Route  path ='/' component={LandingPage} />
         </Switch>
       </div>
     );

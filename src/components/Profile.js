@@ -10,7 +10,7 @@ const Profile = (props) => {
     const logoutHandler = () => {
         localStorage.clear()
         props.emptyCart()
-        props.history.push('/signup')
+        props.history.push('/')
     }
 
     const onClickHisHandler = ()=>{

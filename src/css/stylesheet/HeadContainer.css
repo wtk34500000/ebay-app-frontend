@@ -4,22 +4,10 @@
     width: 100%;
     height: 12vh;
     text-align: center;
-    /* background-color: rgb(17, 122, 148); */
 }
 
-.head-container div {
-    /* margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto; */
-}
-
-/* .logo {
-    width: 20vw;
-} */
 
 .logo img{
-    /* position: relative; */
     height: 8vh;
     float:left;
     margin-top: auto;
@@ -54,12 +42,10 @@
     float:right;
     width: 100%;
     border: 1px solid black;
-    /* margin-left: 60%; */
 }
 
 #user-menu{
     margin: auto;
-    /* float: right; */
     width: 100%;
     text-align: right;
 }
@@ -68,6 +54,5 @@
     height: 5vh;
 }
 .menu-item{
-    /* background-color: rgb(17, 122, 148); */
     border: none;
 }
