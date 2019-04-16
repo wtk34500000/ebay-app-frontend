@@ -55,16 +55,13 @@ class Dictaphone extends Component {
 
     return (
       <div className="voice-search-input">
-          <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
                 <input id="input" type="text" value={transcript}/>
-          </form>
-        {this.state.isMicOn?
-        <Button onClick={this.handleClick}><i class="fas fa-microphone"></i></Button> :
-        <Button onClick={this.handleClick}><i class="fas fa-microphone-slash"></i></Button> 
-        }
-        {/* <span>
-          {transcript}
-        </span> */}
+            </form>
+            {this.state.isMicOn?
+                <Button onClick={this.handleClick}><i class="fas fa-microphone"></i></Button> :
+                <Button onClick={this.handleClick}><i class="fas fa-microphone-slash"></i></Button> 
+            }
       </div>
     )
   }

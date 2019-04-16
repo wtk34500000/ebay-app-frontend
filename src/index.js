@@ -12,6 +12,7 @@ import thunk from 'redux-thunk'
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 import {StripeProvider, Elements} from 'react-stripe-elements';
+
 require('dotenv').config()
 
 
