@@ -56,7 +56,7 @@ const ProductDetail = (props) => {
                         </div>
                     </div>
                     <div className="wish-button"> 
-                            <button onClick={addToWishListHandler}><i class="far fa-heart"></i> Add to Wish list</button>
+                            <button onClick={addToWishListHandler}><i class="far fa-heart" style={{color: "red"}}></i> Add to Wish list</button>
                     </div>
                 </div>
             </div>

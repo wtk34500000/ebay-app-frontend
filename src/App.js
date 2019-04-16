@@ -25,7 +25,7 @@ class App extends Component {
     const token = localStorage.token;
     const cart = JSON.parse(localStorage.getItem("cart"))
     const wishList = JSON.parse(localStorage.getItem("wishList"))
-    if(token){
+    if(token && token !== undefined){
       if(cart){
         this.props.loadCart(cart)
       }

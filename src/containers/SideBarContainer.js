@@ -5,7 +5,6 @@ import {connect} from 'react-redux'
 import '../css/stylesheet/SideBarContainer.css'
 
 const SideBarContainer = (props) => {
-    console.log(props.products)
     return (
         <div className="side-bar-container">
             <div className="side-bar-left">

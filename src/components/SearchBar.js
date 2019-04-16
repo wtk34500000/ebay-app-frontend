@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {getProducts} from '../actions/productAction'
 import {withRouter} from 'react-router-dom'
-import {Button, Form} from "react-bootstrap";
+import {Button, Form, FormControl} from "react-bootstrap";
+import Dictaphone from '../components/Dictaphone'
 import '../css/stylesheet/SearchBar.css'
 
 
 class SearchBar extends Component {
     state={
-        input: ''
+        input: '',
+        micOn: false
     }
 
     onChangeHandler = (e) => {
@@ -23,21 +25,21 @@ class SearchBar extends Component {
         this.props.history.push(`/ecom/search?q=${this.state.input}`)
     }
 
+    handleMicClick = () =>{
+        this.setState({
+            micOn: !this.state.micOn
+        })
+    }
+
     render(){
         return (
-            // <div >
-                <Form inline>
-                    <Form.Control type="text" size="lg" name="input" value={this.state.input} onChange={this.onChangeHandler} placeholder="Search" className="mr-sm-2" />
-                    <Button onClick={this.onClickHandler} variant="outline-primary"><i className="fas fa-search"></i></Button>
-
-                    {/* <form className="search-bar" onSubmit={this.onClickHandler}>
-                    <input type="text" name="input" value={this.state.input} onChange={this.onChangeHandler}/>
-                    <button onClick={this.onClickHandler} id="search-button"><i className="fas fa-search"></i></button>
-                </form> */}
+            <div id="search-bar">
+                <Form inline onSubmit={this.onClickHandler}>
+                    <FormControl type="text" name="input" value={this.state.input} onChange={this.onChangeHandler} placeholder="Search" className="mr-sm-2 search" />
+                    {/* {this.state.micOn? <Button onClick={this.handleMicClick} variant="outline-primary"><i class="fas fa-microphone"></i></Button> : <Button onClick={this.handleMicClick} variant="outline-primary"><i class="fas fa-microphone-slash"></i></Button>} */}
                 </Form>
-                
-                
-            // </div>
+                <Dictaphone className="mic"/>
+            </div>
         )
     }
 }

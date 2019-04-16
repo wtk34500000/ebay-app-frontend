@@ -36,11 +36,17 @@ export const createUser = (user) =>{
                     password: user.password
                 }})
             })
-            .then(res => res.json())
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                  } else {
+                    throw new Error('Email or user name already existed!');
+                  }
+            })
             .then(user => {
                 localStorage.setItem("token", user.jwt)
                 dispatch(addUser(user.user))
-            })
+            }).catch(error => console.log(error))
         }       
 }
 
@@ -58,11 +64,18 @@ export const loginUser = (user) =>{
                 password: user.password
             }})
         })
-        .then(res => res.json())
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+              } else {
+                throw new Error('Invalid email or password!');
+              }
+        })
         .then(user => {
             localStorage.setItem("token", user.jwt)
             dispatch(addUser(user.user))
         })
+        .catch(error=> console.log(error))
     }
 }
 
@@ -80,9 +93,6 @@ export const currentUser = (token) =>{
             .then(user => {
                 dispatch(addUser(user.user))
             })
-        }
-        
-       
-    
+        }  
 }
 

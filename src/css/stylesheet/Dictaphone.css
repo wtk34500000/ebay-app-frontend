@@ -1,0 +1,12 @@
+.voice-search-input {
+    display: flex;
+}
+
+.voice-search-input #input {
+    height: 3.5vh;
+}
+
+.voice-search-input button {
+    height: 3.5vh;
+    background-color: green;
+}

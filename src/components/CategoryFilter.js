@@ -19,8 +19,8 @@ class CategoryFilter extends Component{
          this.setState({
             value: e.target.value
          }, () => {
-             this.props.CategoryProduct(this.state.value)
-             this.props.history.push(`/ecom/search/category?q=${this.state.value}`)
+                this.props.CategoryProduct(this.state.value)
+                this.props.history.push(`/ecom/search/category?q=${this.state.value}`) 
             })
     }
 
