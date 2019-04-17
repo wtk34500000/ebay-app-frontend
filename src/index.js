@@ -15,7 +15,6 @@ import {StripeProvider, Elements} from 'react-stripe-elements';
 
 require('dotenv').config()
 
-
 const rootReducer =combineReducers({
     productInfo: productReducer,
     userInfo: userReducer,

@@ -19,6 +19,7 @@ const Profile = (props) => {
         
     }
 
+
     return (
         <div className="container">
             <div className="row profile">
@@ -40,7 +41,7 @@ const Profile = (props) => {
                  
                     <div className="profile-userbuttons">
                         <button type="button" className="btn btn-success btn-sm">Edit</button>
-                        <button onClick={logoutHandler} type="button" className="btn btn-danger btn-sm">Logout</button>
+                        <button onClick={""} type="button" className="btn btn-danger btn-sm">Delete</button>
                     </div>
          
                     <div className="profile-usermenu">
@@ -55,7 +56,7 @@ const Profile = (props) => {
                                 <Link to={`/ecom/${props.user.id}/wishlist`}><i className="fas fa-heart"></i> Wish List </Link>
                             </li>
                             <li>
-                                <Link to="#"> <i className="fas fa-info"></i> Help </Link>
+                                <Link to='' onClick={logoutHandler}><i className="fas fa-sign-out-alt"></i> LOGOUT </Link>
                             </li>
                         </ul>
                     </div>

@@ -13,14 +13,13 @@ const userReducer = (state = initialState, action) => {
             localStorage.setItem("wishList", JSON.stringify(newWishList))
             return {...state, wishList: newWishList }
         case "ADD_TO_WISH_LIST":
-            if(state.wishList.includes(action.payload)){
-                localStorage.setItem("wishList", JSON.stringify(state.wishList))
-                return {...state}
-            }else{
+            if(!state.wishList.includes(action.payload)){
                 const newWishList = [action.payload, ...state.wishList]
                 localStorage.setItem("wishList", JSON.stringify(newWishList))
                 return {...state, wishList: newWishList}
             }
+                localStorage.setItem("wishList", JSON.stringify(state.wishList))
+                return {...state}
         case "LOAD_USER_HISTORY":
             return {...state, userHis: action.payload}
         case "ADD_USER":

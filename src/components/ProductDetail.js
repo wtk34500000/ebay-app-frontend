@@ -23,8 +23,8 @@ const ProductDetail = (props) => {
     }
     
     const addToWishListHandler =()=>{
-        console.log("clicked on wish button")
         props.addToWishList(props.productObj)
+        props.history.goBack()
     }
 
     return (
