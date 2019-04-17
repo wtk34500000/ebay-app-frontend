@@ -23,6 +23,7 @@ const userReducer = (state = initialState, action) => {
         case "LOAD_USER_HISTORY":
             return {...state, userHis: action.payload}
         case "ADD_USER":
+        console.log("3")
             return { ...state, user: action.payload }
         default:
             return state

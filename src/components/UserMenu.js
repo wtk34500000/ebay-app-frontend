@@ -33,6 +33,7 @@ const UserMenu = (props) => {
                     <Dropdown.Item onClick={onClickHisHandler}> HISTORY <i className="fas fa-folder"></i></Dropdown.Item>
                     <Dropdown.Item onClick={wishListHandler}>WISHLIST <i className="fas fa-heart"></i></Dropdown.Item>
                     <Dropdown.Item onClick={logoutHandler}>LOGOUT <i className="fas fa-sign-out-alt"></i></Dropdown.Item>
+
         </NavDropdown>
     )
 }

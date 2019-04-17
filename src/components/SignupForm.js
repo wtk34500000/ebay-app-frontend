@@ -37,7 +37,7 @@ class SignupForm extends Component{
                 last_name: '',
                 user_name: ''
             })
-            setTimeout(()=> this.props.history.push('/ecom'), 1000)
+            setTimeout(()=> this.props.history.push('/ecom'), 300)
         
     }
 
@@ -105,16 +105,6 @@ class SignupForm extends Component{
                 onChange={this.handleChange}
                 />
             </FormGroup>
-            {/* <FormGroup controlId="confirm_password">
-                <FormControl
-                autoFocus
-                type="password"
-                placeholder="Confirm Password"
-                value={this.state.confirm_password}
-                name="confirm_password"
-                onChange={this.handleChange}
-                />
-            </FormGroup> */}
             <Button
                 block
                 disabled={!this.validateForm()}
@@ -124,8 +114,8 @@ class SignupForm extends Component{
             </Button>
             <Button
                 block
-                
                 onClick={this.handleClick}
+                // onClick={this.handleClick}
             >
                 Log In
             </Button>

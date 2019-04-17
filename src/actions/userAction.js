@@ -52,7 +52,7 @@ export const createUser = (user) =>{
 
 export const loginUser = (user) =>{
     return (dispatch) => {
-        return fetch("http://localhost:3001/api/v1/login",{
+        return  fetch("http://localhost:3001/api/v1/login",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

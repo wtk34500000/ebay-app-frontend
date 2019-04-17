@@ -20,7 +20,7 @@ class LoginForm extends Component{
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.loginUser(this.state)
-        this.props.history.push('/ecom')
+        setTimeout(()=>this.props.history.push('/ecom'), 300)
         this.setState({
             email: '',
             password:''
