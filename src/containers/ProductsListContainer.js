@@ -3,9 +3,6 @@ import React from 'react'
 import ProductCard from '../components/ProductCard'
 import '../css/stylesheet/ProductContainer.css'
 
-
-
-
 const ProductsListContainer = (props) => {
     const arrOfProducts = props.products.map((product, idx) => <ProductCard key={idx} productObj={product}/>)    
     return(

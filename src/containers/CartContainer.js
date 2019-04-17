@@ -5,10 +5,11 @@ import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom';
 
 const CartContainer = (props) => {
+    const { cart }=props
     return (
         <div className="cart-container">
             <CartList />
-            {props.cart.length > 0? <CheckoutMenu />: ''}
+            {cart.length > 0? <CheckoutMenu />: ''}
         </div>
 
     )

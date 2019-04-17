@@ -46,12 +46,12 @@ class Dictaphone extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.getProducts(this.state.input)
-        this.props.history.push(`/ecom/search?q=${this.state.input}`)
+        // this.props.getProducts(this.state.input)
+        // this.props.history.push(`/ecom/search?q=${this.state.input}`)
+        this.searchProduct(this.state.input)
     }
 
     handleTranscript = (msg) => {
-        console.log("transcript",msg)
         this.setState({
            input: msg
         })
@@ -60,9 +60,15 @@ class Dictaphone extends Component {
     componentDidUpdate(preProps, preState){
         if(this.props.transcript !== preProps.transcript){
             this.handleTranscript(this.props.transcript)
-            this.props.getProducts(this.state.input)
-            this.props.history.push(`/ecom/search?q=${this.state.input}`)
+            this.searchProduct(this.state.input)
+            // this.props.getProducts(this.state.input)
+            // this.props.history.push(`/ecom/search?q=${this.state.input}`)
         }
+    }
+
+    searchProduct = (term) =>{
+        this.props.getProducts(term)
+        this.props.history.push(`/ecom/search?q=${term}`)
     }
 
   render() {
@@ -91,7 +97,8 @@ class Dictaphone extends Component {
 Dictaphone.propTypes = propTypes
 
 const options = {
-    autoStart: false
+    autoStart: false,
+    continuous: false
   }
   
 export default withRouter(connect(null, {getProducts})(SpeechRecognition(options)(Dictaphone)));

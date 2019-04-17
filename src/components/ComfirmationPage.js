@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import CartCard from './CartCard'
 import{ ListGroup } from 'react-bootstrap'
 import { Link, Redirect } from 'react-router-dom'
 

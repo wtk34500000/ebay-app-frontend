@@ -3,13 +3,15 @@ import { CardElement, injectStripe } from 'react-stripe-elements';
 import {postCheckout} from '../actions/orderAction'
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 
 class PaymentForm extends Component {
     state={
         name: "",
         amount: '',
         email: '',
-        error: ''
+        error: '',
+        isClick: false
     }
 
     componentDidMount(){
@@ -33,6 +35,7 @@ class PaymentForm extends Component {
 
     handleSubmit =  (e)=>{
         e.preventDefault();
+        this.setState({isClick: true})
         try {            
            this.props.stripe.createToken({name: this.state.name}).then((result) => {
                 if(result.token){
@@ -50,7 +53,6 @@ class PaymentForm extends Component {
         } catch(e) {
             throw e;
         }
-      
     }
 
     render(){
@@ -63,7 +65,7 @@ class PaymentForm extends Component {
                     <input type="email" className="input-group my-1 p-1 border border-dark" placeholder="Email address" name="email" value={this.state.email} onChange={this.handleOnChange} required/>
                     <label>CC Number -- Exp. Date -- CVC -- Zip Code <i class="fab fa-cc-visa" style={{color: "black"}}></i>  <i class="fab fa-cc-mastercard" style={{color: "red"}}></i>  <i class="fab fa-cc-amex" style={{color: "blue"}}></i></label>
                     <CardElement className="p-2 border border-dark"/>
-                    <button className="btn btn-primary border border-darl shadow mt-3">Charge It!</button>
+                    {this.state.isClick? <Loader type="Rings" color="green" height={80} width={80} />: <button className="btn btn-primary border border-darl shadow mt-3">Charge It!</button>}
                 </form>
             </main>
         )
