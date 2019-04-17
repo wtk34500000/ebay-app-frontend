@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {getProducts} from '../actions/productAction'
 import {withRouter} from 'react-router-dom'
-import {Button, Form, FormControl} from "react-bootstrap";
-import Dictaphone from '../components/Dictaphone'
+import Dictaphone from './Dictaphone'
 import '../css/stylesheet/SearchBar.css'
 
 
@@ -19,12 +18,6 @@ class SearchBar extends Component {
         })
     }
 
-    onClickHandler = (e) => {
-        e.preventDefault()
-        this.props.getProducts(this.state.input)
-        this.props.history.push(`/ecom/search?q=${this.state.input}`)
-    }
-
     handleMicClick = () =>{
         this.setState({
             micOn: !this.state.micOn
@@ -34,10 +27,6 @@ class SearchBar extends Component {
     render(){
         return (
             <div id="search-bar">
-                <Form inline onSubmit={this.onClickHandler}>
-                    <FormControl type="text" name="input" value={this.state.input} onChange={this.onChangeHandler} placeholder="Search" className="mr-sm-2 search" />
-                    {/* {this.state.micOn? <Button onClick={this.handleMicClick} variant="outline-primary"><i class="fas fa-microphone"></i></Button> : <Button onClick={this.handleMicClick} variant="outline-primary"><i class="fas fa-microphone-slash"></i></Button>} */}
-                </Form>
                 <Dictaphone className="mic"/>
             </div>
         )

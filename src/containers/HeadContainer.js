@@ -6,7 +6,6 @@ import '../css/stylesheet/HeadContainer.css'
 import { Navbar, Nav } from "react-bootstrap";
 import '../css/stylesheet/SearchBar.css';
 import Cart from '../components/Cart'
-import Dictaphone from '../components/Dictaphone'
 
 const HeadContainer = () => {
     
@@ -15,9 +14,7 @@ const HeadContainer = () => {
             <Navbar.Brand><Logo /></Navbar.Brand>
             <Nav className="ml-auto">
                 <SearchBar />
-                {/* <Dictaphone className="ml-auto"/> */}
                 <Cart />
-         
                 <UserMenu />
             </Nav>
         </Navbar>

@@ -5,6 +5,7 @@ import {Button} from 'react-bootstrap';
 import { getProducts } from '../actions/productAction';
 import {connect} from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import {FormControl, Form} from 'react-bootstrap'
 import '../css/stylesheet/Dictaphone.css'
 
 const propTypes = {
@@ -19,7 +20,7 @@ const propTypes = {
 class Dictaphone extends Component {
     state={
         isMicOn: false,
-        
+        input: ''
     }
 
     handleClick = () =>{
@@ -35,32 +36,52 @@ class Dictaphone extends Component {
         this.props.resetTranscript();
     }
 
+    handleOnChange = (e) =>{
+        if(!this.state.isMicOn){
+            this.setState({
+                input: e.target.value
+            })
+        }
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.props.transcript)
-        this.props.getProducts(this.props.transcript)
-        this.props.resetTranscript();
-        this.props.history.push(`/ecom/search?q=${this.props.transcript}`)
+        this.props.getProducts(this.state.input)
+        this.props.history.push(`/ecom/search?q=${this.state.input}`)
+    }
+
+    handleTranscript = (msg) => {
+        console.log("transcript",msg)
+        this.setState({
+           input: msg
+        })
+    }
+
+    componentDidUpdate(preProps, preState){
+        if(this.props.transcript !== preProps.transcript){
+            this.handleTranscript(this.props.transcript)
+            this.props.getProducts(this.state.input)
+            this.props.history.push(`/ecom/search?q=${this.state.input}`)
+        }
     }
 
   render() {
     const {
-      transcript,
       browserSupportsSpeechRecognition
     } = this.props
 
     if (!browserSupportsSpeechRecognition) {
       return null
     }
-
+    
     return (
       <div className="voice-search-input">
-            <form onSubmit={this.handleSubmit}>
-                <input id="input" type="text" value={transcript}/>
-            </form>
+          <Form inline onSubmit={this.handleSubmit}>
+                <FormControl id="input" type="text" name="input" onChange={this.handleOnChange} value={this.state.input} placeholder="Search" className="mr-sm-2 search" />
+            </Form>
             {this.state.isMicOn?
-                <Button onClick={this.handleClick}><i class="fas fa-microphone"></i></Button> :
-                <Button onClick={this.handleClick}><i class="fas fa-microphone-slash"></i></Button> 
+                <Button onClick={this.handleClick}><i className="fas fa-microphone"></i></Button> :
+                <Button onClick={this.handleClick}><i className="fas fa-microphone-slash"></i></Button> 
             }
       </div>
     )
@@ -73,5 +94,4 @@ const options = {
     autoStart: false
   }
   
- 
 export default withRouter(connect(null, {getProducts})(SpeechRecognition(options)(Dictaphone)));

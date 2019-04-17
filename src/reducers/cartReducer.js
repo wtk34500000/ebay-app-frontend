@@ -15,9 +15,12 @@ const cartReducer = (state = initialState, action) => {
             localStorage.setItem("cart", JSON.stringify(removeArr))
             return {cart: removeArr}
         case "ADD_CART":
-            const newArr=[...state.cart, action.payload]
-            localStorage.setItem("cart", JSON.stringify(newArr))
-            return {cart: [...state.cart, action.payload]}
+            if(!state.cart.includes(action.payload)){
+                const newArr=[...state.cart, action.payload]
+                localStorage.setItem("cart", JSON.stringify(newArr))
+                return {cart: [...state.cart, action.payload]}
+            }
+            return {...state}
         default:
             return state
     }
