@@ -1,8 +1,9 @@
-const ADD_USER="ADD_USER"
-const LOAD_USER_HISTORY="LOAD_USER_HISTORY"
-const ADD_TO_WISH_LIST="ADD_TO_WISH_LIST"
+const ADD_USER ="ADD_USER"
+const LOAD_USER_HISTORY ="LOAD_USER_HISTORY"
+const ADD_TO_WISH_LIST ="ADD_TO_WISH_LIST"
 const REMOVE_FROM_WISH_LIST ="REMOVE_FROM_WISH_LIST"
 const LOAD_WISH_LIST ="LOAD_WISH_LIST"
+
 
 const addUser = (user) =>({type: ADD_USER, payload: user})
 const loadUserhistory =(userHistories)=>({type: LOAD_USER_HISTORY, payload: userHistories})
@@ -17,6 +18,16 @@ export const getUserHistory = (id) => {
         .then(res => res.json())
         .then(userInfo => dispatch(loadUserhistory(userInfo.user)))
     }
+}
+
+export const deleteUser = (id, token)=> (dispatch)=> {
+        return fetch(`http://localhost:3001/api/v1/users/${id}`, {
+            method: "DELETE",
+            headers:{
+                "content-type": "application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
 }
 
 export const createUser = (user) =>{

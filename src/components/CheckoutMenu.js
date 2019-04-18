@@ -29,8 +29,7 @@ const CheckoutMenu = (props) => {
             createProduct(item)
               .then(product =>{
                   createOrder(props.user.id, product.product.id).then(console.log)
-              })
-            
+              }) 
         } )
     }
 

@@ -9,10 +9,9 @@ const LandingPage= () => {
                 <div className="landing-header">
                 <img className="landing-image" src="https://moneyinc.com/wp-content/uploads/2017/01/ecommerce-shopping-retail-ss-1920.jpg" alt=""/>
                     <h1>Welcome to Ecom</h1>
-		            <Link to="/signup" className="btn btn-lg btn-success"><i className="fas fa-angle-double-right"></i> Signup</Link>
+		            <Link to="/signup" className="btn btn-lg btn-success"><i className="fas fa-angle-double-right"></i> SIGNUP</Link>
                 </div>            
-        </div>
-        
+        </div>   
     )
 }
 

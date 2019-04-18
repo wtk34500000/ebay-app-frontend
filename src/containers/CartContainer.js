@@ -11,7 +11,6 @@ const CartContainer = (props) => {
             <CartList />
             {cart.length > 0? <CheckoutMenu />: ''}
         </div>
-
     )
 }
 

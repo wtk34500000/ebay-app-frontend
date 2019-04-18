@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import '../css/stylesheet/Profile.css'
 import {emptyCart} from '../actions/cartAction'
 import { Link, withRouter } from 'react-router-dom'
-import { getUserHistory } from '../actions/userAction'
+import { getUserHistory, deleteUser } from '../actions/userAction'
 
 const Profile = (props) => {
     const url=process.env.REACT_APP_URL
@@ -12,6 +12,15 @@ const Profile = (props) => {
         localStorage.clear()
         props.emptyCart()
         props.history.push('/')
+    }
+
+    const deleteHandler= () => {
+        const id=props.user.id
+        const token=localStorage.token
+        props.deleteUser(id, token)
+        localStorage.clear()
+        props.history.push('/')
+
     }
 
     const onClickHisHandler = ()=>{
@@ -40,7 +49,7 @@ const Profile = (props) => {
                  
                     <div className="profile-userbuttons">
                         <button type="button" className="btn btn-success btn-sm">Edit</button>
-                        <button onClick={""} type="button" className="btn btn-danger btn-sm">Delete</button>
+                        <button onClick={deleteHandler} type="button" className="btn btn-danger btn-sm">Delete</button>
                     </div>
          
                     <div className="profile-usermenu">
@@ -76,4 +85,4 @@ const mapStateToProps = (state) => {
     return {user: state.userInfo.user }
 }
 
-export default withRouter(connect(mapStateToProps, { emptyCart, getUserHistory })(Profile));
+export default withRouter(connect(mapStateToProps, { emptyCart, getUserHistory, deleteUser })(Profile));
