@@ -11,6 +11,7 @@ import '../css/stylesheet/Dictaphone.css'
 const propTypes = {
   // Props injected by SpeechRecognition
   transcript: PropTypes.string,
+  finalTranscript: PropTypes.string,
   startListening: PropTypes.func,
   stopListening: PropTypes.func,
   resetTranscript: PropTypes.func,
@@ -29,8 +30,6 @@ class Dictaphone extends Component {
         }, ()=> {
             if(this.state.isMicOn){
                 this.props.startListening()
-            }else{
-                this.props.stopListening()
             }
         })
         this.props.resetTranscript();
@@ -46,30 +45,26 @@ class Dictaphone extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.getProducts(this.state.input)
-        this.props.history.push(`/ecom/search?q=${this.state.input}`)
-        // this.searchProduct(this.state.input)
-    }
-
-    handleTranscript = (msg) => {
-        this.setState({
-           input: msg
-        })
+        this.searchProduct(this.state.input)
     }
 
     componentDidUpdate(preProps, preState){
-        if(this.props.transcript !== preProps.transcript){
-            this.handleTranscript(this.props.transcript)
+        if(this.props.finalTranscript !== preProps.finalTranscript){
+            // this.handleTranscript(this.props.transcript)
+            this.setState({
+                input: this.props.finalTranscript
+             }, ()=>  this.props.getProducts(this.state.input))
             // this.searchProduct(this.state.input)
             // this.props.getProducts(this.state.input)
+            setTimeout(()=> this.props.history.push(`/ecom/search?q=${this.state.input}`), 200)
             // this.props.history.push(`/ecom/search?q=${this.state.input}`)
         }
     }
 
-    // searchProduct = (term) =>{
-    //     this.props.getProducts(term)
-    //     this.props.history.push(`/ecom/search?q=${term}`)
-    // }
+    searchProduct = (term) =>{
+        this.props.getProducts(term)
+        this.props.history.push(`/ecom/search?q=${term}`)
+    }
 
   render() {
     const {
@@ -98,7 +93,7 @@ Dictaphone.propTypes = propTypes
 
 const options = {
     autoStart: false,
-    continuous: false
+    continuous: false,
   }
   
 export default withRouter(connect(null, {getProducts})(SpeechRecognition(options)(Dictaphone)));
