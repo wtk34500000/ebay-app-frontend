@@ -11,7 +11,8 @@ export const postCheckout = (name, amount, tokenId, email) => {
         return fetch("http://localhost:3001/api/v1/donate", {
                 method: "POST",
                 headers: {
-                    "content-type": "application/json"
+                    "content-type": "application/json",
+                    Authorization: `Bearer ${localStorage.token}`
                 },
                 body: JSON.stringify({
                     name: name,
@@ -20,7 +21,6 @@ export const postCheckout = (name, amount, tokenId, email) => {
                     email: email
                 })
             }).then(res => res.json()).then(paymentData => {
-                console.log('payment data from backend', paymentData)       
                 dispatch(checkOut(paymentData))
             }
                  )

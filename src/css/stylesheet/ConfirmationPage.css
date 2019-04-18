@@ -1,0 +1,47 @@
+.order-info{
+    width: 100vw;
+    height:100vh;
+}
+
+#order-header h3{
+    height: 5vh;
+    width: 100vw;
+    margin-bottom: 3vh;
+    position: fixed;
+    background: white;
+    z-index: 6;
+}
+
+#order-header h1{
+    margin: 3rem auto auto auto;
+    width: 100vw;
+    border-bottom: 2px solid black;
+    position: fixed;
+    background: white;
+    z-index: 6;
+}
+
+.list-group {
+    margin: 5rem auto auto auto;
+}
+.list-group div{
+    display: flex;
+    width: 80%;
+    height: 30vh;
+    margin: 2% auto 2% auto;
+    box-shadow: 4px 4px 4px lightgray;
+    overflow-y: auto;
+}
+
+.list-group img{
+    margin: auto;
+}
+
+.list-group div p {
+    margin: auto;
+    font-size: 2.4rem;
+    font-weight: 100;
+    text-shadow: 2px 2px 7px black;
+
+    /* color: red; */
+}

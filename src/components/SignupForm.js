@@ -37,7 +37,7 @@ class SignupForm extends Component{
                 last_name: '',
                 user_name: ''
             })
-            setTimeout(()=> this.props.history.push('/ecom'), 300)
+        setTimeout(()=> this.props.history.push('/ecom'), 300)
         
     }
 
@@ -49,11 +49,6 @@ class SignupForm extends Component{
         return (
             <div className="Login">
             <form onSubmit={this.handleSubmit}>
-                {/* <h1>Log In: </h1>
-                {this.props.error ?
-                <p>Wrong email or password</p>
-            :
-            null} */}
              <h1>Sign Up: </h1>
             <FormGroup controlId="first_name">
                 <FormControl
@@ -115,7 +110,6 @@ class SignupForm extends Component{
             <Button
                 block
                 onClick={this.handleClick}
-                // onClick={this.handleClick}
             >
                 Log In
             </Button>

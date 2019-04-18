@@ -27,7 +27,7 @@ const CartCard = (props) => {
             <p>Price: {`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`}</p>
             </div>
             <div className="card-info remove-button">
-                <button onClick={onClickHandler}>REMOVE <i class="fas fa-trash-alt" style={{color: "white"}}></i></button>
+                <button onClick={onClickHandler}>REMOVE <i className="fas fa-trash-alt" style={{color: "white"}}></i></button>
             </div>
                 
         </div>

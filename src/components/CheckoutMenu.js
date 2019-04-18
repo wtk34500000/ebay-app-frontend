@@ -27,8 +27,6 @@ const CheckoutMenu = (props) => {
         cartArr.forEach(item => {
             createProduct(item)
               .then(product =>{
-                  console.log("product obj from back end", product)
-                  console.log("product obj from back end", props.user.id)
                   createOrder(props.user.id, product.product.id).then(console.log)
               })
             

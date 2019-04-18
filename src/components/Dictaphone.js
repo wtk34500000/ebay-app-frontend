@@ -46,9 +46,9 @@ class Dictaphone extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        // this.props.getProducts(this.state.input)
-        // this.props.history.push(`/ecom/search?q=${this.state.input}`)
-        this.searchProduct(this.state.input)
+        this.props.getProducts(this.state.input)
+        this.props.history.push(`/ecom/search?q=${this.state.input}`)
+        // this.searchProduct(this.state.input)
     }
 
     handleTranscript = (msg) => {
@@ -60,16 +60,16 @@ class Dictaphone extends Component {
     componentDidUpdate(preProps, preState){
         if(this.props.transcript !== preProps.transcript){
             this.handleTranscript(this.props.transcript)
-            this.searchProduct(this.state.input)
+            // this.searchProduct(this.state.input)
             // this.props.getProducts(this.state.input)
             // this.props.history.push(`/ecom/search?q=${this.state.input}`)
         }
     }
 
-    searchProduct = (term) =>{
-        this.props.getProducts(term)
-        this.props.history.push(`/ecom/search?q=${term}`)
-    }
+    // searchProduct = (term) =>{
+    //     this.props.getProducts(term)
+    //     this.props.history.push(`/ecom/search?q=${term}`)
+    // }
 
   render() {
     const {
@@ -82,7 +82,7 @@ class Dictaphone extends Component {
     
     return (
       <div className="voice-search-input">
-          <Form inline onSubmit={this.handleSubmit}>
+            <Form inline onSubmit={this.handleSubmit}>
                 <FormControl id="input" type="text" name="input" onChange={this.handleOnChange} value={this.state.input} placeholder="Search" className="mr-sm-2 search" />
             </Form>
             {this.state.isMicOn?

@@ -3,8 +3,7 @@ import Login from './components/LoginForm';
 import Signup from './components/SignupForm';
 import HomeContainer from './containers/HomeContainer';
 import ProductItem from './components/ProductDetail'
-import ComfirmationPage from './components/ComfirmationPage';
-// import Payment from './components/Payment'
+import ComfirmationPage from './components/ConfirmationPage';
 import OrderHistory from './components/OrderHistoryList'
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Cart from './containers/CartContainer'
@@ -42,7 +41,7 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-              <Route  path ='/ecom/cart/checkout/comfirmation' component={ComfirmationPage} />
+              <Route  path ='/ecom/cart/checkout/confirmation' component={ComfirmationPage} />
               <Route  path ='/ecom/products/:name' component={ProductItem} />
               <Route  path ='/ecom/:id/profile' component={Profile} />
               <Route  path ='/ecom/:name/wishlist' component={WishList} />
