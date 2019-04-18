@@ -6,53 +6,54 @@ import {getProducts} from '../actions/productAction'
 
 
 const NavBar = (props) => {
-    
+    const url=process.env.REACT_APP_URL
+
     const onClickToysHandle =()=> {
         const toys ='toys'
         props.getProducts(toys)
-        props.history.push(`/ecom/search?q=${toys}`)
+        props.history.push(`${url}/search?q=${toys}`)
     }
 
     const onClickMusicHandle =()=> {
         const musics ='musics'
         props.getProducts(musics)
-        props.history.push(`/ecom/search?q=${musics}`)
+        props.history.push(`${url}/search?q=${musics}`)
     }
 
     const onClickMotorsHandle = () => {
         const motors ='motors'
         props.getProducts(motors)
-        props.history.push(`/ecom/search?q=${motors}`)
+        props.history.push(`${url}/search?q=${motors}`)
     }
 
     const onClickSportHandle = () => {
         const sportingGood ='sporting good'
         props.getProducts(sportingGood)
-        props.history.push(`/ecom/search?q=${sportingGood}`)
+        props.history.push(`${url}/search?q=${sportingGood}`)
     }
 
     const onClickFashionHandle = () => {
         const fashion ='fashion'
         props.getProducts(fashion)
-        props.history.push(`/ecom/search?q=${fashion}`)
+        props.history.push(`${url}/search?q=${fashion}`)
     }
 
     const onClickElecHandle = () => {
         const electronics ='electronics'
         props.getProducts(electronics)
-        props.history.push(`/ecom/search?q=${electronics}`)
+        props.history.push(`${url}/search?q=${electronics}`)
     }
 
     const onClickHomeHandle = () => {
         const homeStationary ='home stationary'
         props.getProducts(homeStationary)
-        props.history.push(`/ecom/search?q=${homeStationary}`)
+        props.history.push(`${url}/search?q=${homeStationary}`)
     }
 
     const onClickArtHandle = () => {
         const art ='art'
         props.getProducts(art)
-        props.history.push(`/ecom/search?q=${art}`)
+        props.history.push(`${url}/search?q=${art}`)
     }
 
     return (

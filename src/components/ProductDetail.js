@@ -9,6 +9,7 @@ import { addToWishList } from '../actions/userAction'
 
 
 const ProductDetail = (props) => {
+    const url=process.env.REACT_APP_URL
     let title, img, condition, price;
     if(props.productObj){
         title=props.productObj.title[0]
@@ -31,7 +32,7 @@ const ProductDetail = (props) => {
         <div className="product-container">
             
             <div className="home-page">
-                <Link to='/ecom'><span>Back to Home Page</span></Link>
+                <Link to={url}><span>Back to Home Page</span></Link>
             </div>
 
             <div id="product-item">

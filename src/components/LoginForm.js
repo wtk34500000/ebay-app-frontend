@@ -19,8 +19,8 @@ class LoginForm extends Component{
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.loginUser(this.state)
-        setTimeout(()=>this.props.history.push('/ecom'), 300)
+        const url=process.env.REACT_APP_URL
+        this.props.loginUser(this.state).then(()=> this.props.history.push(url))
         this.setState({
             email: '',
             password:''
@@ -69,7 +69,6 @@ class LoginForm extends Component{
               </Button>
             </form>
           </div>
-
         )
     }
 }

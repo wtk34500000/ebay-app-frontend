@@ -6,10 +6,12 @@ import { getUserHistory } from '../actions/userAction';
 import {Dropdown, NavDropdown} from 'react-bootstrap'
 
 const UserMenu = (props) => {
+    const url=process.env.REACT_APP_URL
 
     const onClickHisHandler = ()=>{
-        props.getUserHistory(props.user.id)
-        setTimeout(()=> props.history.push(`/ecom/${props.user.id}/history`), 1000)  
+        props.getUserHistory(props.user.id).then(()=> props.history.push(`${url}/${props.user.id}/history`))
+        // .then(()=> props.history.push(`/ecom/${props.user.id}/history`))
+        // setTimeout(()=> props.history.push(`/ecom/${props.user.id}/history`), 1000)  
     }
 
     const logoutHandler = () => {
@@ -19,11 +21,11 @@ const UserMenu = (props) => {
     }
 
     const wishListHandler = () => {
-        props.history.push(`/ecom/${props.user.id}/wishlist`)
+        props.history.push(`${url}/${props.user.id}/wishlist`)
     }
 
     const onClickProfileHandler= ()=>{
-        props.history.push(`/ecom/${props.user.id}/profile`)
+        props.history.push(`${url}/${props.user.id}/profile`)
     }
 
     return (

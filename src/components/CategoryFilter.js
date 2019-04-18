@@ -16,11 +16,12 @@ class CategoryFilter extends Component{
     }
 
      handleOnSelect = (e) => {
+        const url=process.env.REACT_APP_URL
          this.setState({
             value: e.target.value
          }, () => {
                 this.props.CategoryProduct(this.state.value)
-                this.props.history.push(`/ecom/search/category?q=${this.state.value}`) 
+                this.props.history.push(`${url}/search/category?q=${this.state.value}`) 
             })
     }
 

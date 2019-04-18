@@ -6,8 +6,10 @@ import {withRouter} from 'react-router'
 import {removeFromWishList} from '../actions/userAction'
 
 const CartCard = (props) => {
+    
     const onClickHandler = () => {
-        if(props.history.location.pathname === "/ecom/cart"){
+        const url=process.env.REACT_APP_URL
+        if(props.history.location.pathname === `${url}/cart`){
             props.removeProduct(props.productObj.title[0])
         }else{
             props.removeFromWishList(props.productObj.title[0])

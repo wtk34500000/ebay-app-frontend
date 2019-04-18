@@ -31,24 +31,25 @@ class App extends Component {
         this.props.loadWishList(wishList)
       }
         this.props.currentUser(token)
-        this.props.history.push("/ecom")
+        this.props.history.push(process.env.REACT_APP_URL)
     }else{
         this.props.history.push("/");
     }
   };
 
   render() {
+    const url=process.env.REACT_APP_URL
     return (
       <div className="App">
         <Switch>
-              <Route  path ='/ecom/cart/checkout/confirmation' component={ComfirmationPage} />
-              <Route  path ='/ecom/products/:name' component={ProductItem} />
-              <Route  path ='/ecom/:id/profile' component={Profile} />
-              <Route  path ='/ecom/:name/wishlist' component={WishList} />
-              <Route  path ='/ecom/:name/history' component={OrderHistory} />
-              <Route  path ='/ecom/cart/checkout' component={PaymentForm} />
-              <Route  path ='/ecom/cart' component={Cart} />
-              <Route  path ='/ecom' component={HomeContainer} />
+              <Route  path ={`${url}/cart/checkout/confirmation`} component={ComfirmationPage} />
+              <Route  path ={`${url}/products/:name`} component={ProductItem} />
+              <Route  path ={`${url}/:id/profile`} component={Profile} />
+              <Route  path ={`${url}/:name/wishlist`} component={WishList} />
+              <Route  path ={`${url}/:name/history`} component={OrderHistory} />
+              <Route  path ={`${url}/cart/checkout`} component={PaymentForm} />
+              <Route  path ={`${url}/cart`} component={Cart} />
+              <Route  path ={url} component={HomeContainer} />
               <Route  path ='/login' component={Login} />
               <Route  path ='/signup' component={Signup} />
               <Route  path ='/' component={LandingPage} />

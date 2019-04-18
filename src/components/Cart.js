@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom'
 const Cart = (props) => {
 
     const onClickCartHandler = () => {
-        props.history.push('/ecom/cart')
+        const url=process.env.REACT_APP_URL
+        props.history.push(`${url}/cart`)
     }
 
     return (

@@ -29,7 +29,8 @@ class SignupForm extends Component{
     
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.createUser(this.state)
+        const url=process.env.REACT_APP_URL
+        this.props.createUser(this.state).then(()=> this.props.history.push(url))
             this.setState({
                 email: '',
                 password:'',
@@ -37,8 +38,7 @@ class SignupForm extends Component{
                 last_name: '',
                 user_name: ''
             })
-        setTimeout(()=> this.props.history.push('/ecom'), 300)
-        
+        // setTimeout(()=> this.props.history.push('/ecom'), 300)
     }
 
     handleClick = () => {
