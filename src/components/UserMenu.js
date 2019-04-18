@@ -10,8 +10,6 @@ const UserMenu = (props) => {
 
     const onClickHisHandler = ()=>{
         props.getUserHistory(props.user.id).then(()=> props.history.push(`${url}/${props.user.id}/history`))
-        // .then(()=> props.history.push(`/ecom/${props.user.id}/history`))
-        // setTimeout(()=> props.history.push(`/ecom/${props.user.id}/history`), 1000)  
     }
 
     const logoutHandler = () => {

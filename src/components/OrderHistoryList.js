@@ -23,7 +23,7 @@ const OrderHistoryList = (props) => {
                             {getUserHis()}
                         </ ListGroup>
                     </div>
-                : props.history.push('/ecom')
+                : props.history.push({url})
                 }
             </div>
         )
