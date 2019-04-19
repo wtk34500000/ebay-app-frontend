@@ -19,24 +19,24 @@ import './App.css';
 
 class App extends Component {
 
-  // componentDidMount = () => {
-  //   const url=process.env.REACT_APP_URL
-  //   const token = localStorage.token;
-  //   const cart = JSON.parse(localStorage.getItem("cart"))
-  //   const wishList = JSON.parse(localStorage.getItem("wishList"))
-  //   if(token && token !== undefined){
-  //     if(cart){
-  //       this.props.loadCart(cart)
-  //     }
-  //     if(wishList){
-  //       this.props.loadWishList(wishList)
-  //     }
-  //       this.props.currentUser(token)
-  //       this.props.history.push(process.env.REACT_APP_URL)
-  //   }else{
-  //       this.props.history.push(`/signup`);
-  //   }
-  // };
+  componentDidMount = () => {
+    const url=process.env.REACT_APP_URL
+    const token = localStorage.token;
+    const cart = JSON.parse(localStorage.getItem("cart"))
+    const wishList = JSON.parse(localStorage.getItem("wishList"))
+    if(token && token !== undefined){
+      if(cart){
+        this.props.loadCart(cart)
+      }
+      if(wishList){
+        this.props.loadWishList(wishList)
+      }
+        this.props.currentUser(token)
+        this.props.history.push(process.env.REACT_APP_URL)
+    }else{
+        this.props.history.push(`https://ecom-shop.herokuapp.com/signup`);
+    }
+  };
 
   render() {
     const url=process.env.REACT_APP_URL
