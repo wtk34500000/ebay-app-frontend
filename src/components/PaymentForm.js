@@ -39,6 +39,7 @@ class PaymentForm extends Component {
             this.setState({isClick: true})
         try {            
            this.props.stripe.createToken({name: this.state.name}).then((result) => {
+               console.log("back from stripe result ",result)
                 if(result.token){
                     const name=this.state.name
                     const amount= this.state.amount

@@ -20,9 +20,6 @@ export const postCheckout = (name, amount, tokenId, email) => {
                     stripeToken: tokenId,
                     email: email
                 })
-            }).then(res => res.json()).then(paymentData => {
-                dispatch(checkOut(paymentData))
-            }
-                 )
+            }).then(res => res.json()).then(paymentData => console.log("paymentData send back from backend",paymentData) || dispatch(checkOut(paymentData)))
     }
 }
