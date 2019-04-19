@@ -36,6 +36,7 @@ export const getProducts= (input)=> {
             }
          })
         .then(data => {
+            console.log("products data",data)
             if(data.findItemsByKeywordsResponse[0].searchResult[0].item){
                 dispatch(loadProduct(data.findItemsByKeywordsResponse[0].searchResult[0].item)) 
             } else{
