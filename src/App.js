@@ -31,10 +31,10 @@ class App extends Component {
         this.props.loadWishList(wishList)
       }
         this.props.currentUser(token)
-        this.props.history.push('/welcome')
+        this.props.history.push('/')
     }else{
         this.props.history.push({
-          pathname: '/'
+          pathname: '/welcome'
         });
     }
   };
@@ -50,10 +50,10 @@ class App extends Component {
               <Route exact path ='/:name/history' component={OrderHistory} />
               <Route exact path ='/cart/checkout' component={PaymentForm} />
               <Route exact path ='/cart' component={Cart} />
-              <Route exact path ='/welcome' component={HomeContainer} />
+              <Route exact path ='/' component={HomeContainer} />
               <Route exact path ='/login' component={Login} />
               <Route exact path ='/signup' component={Signup} />
-              <Route exact path ='/' component={LandingPage} />
+              <Route exact path ='/welcome' component={LandingPage} />
         </Switch>
       </div>
     );
