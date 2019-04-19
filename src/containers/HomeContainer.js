@@ -30,9 +30,7 @@ class HomeContainer extends Component{
             )
         }else{
            return (
-               this.props.history.push('/signup')
-            //    <div>Hello World</div>
-         // <Redirect to='https://ecom-shop.herokuapp.com/signup'/>
+               this.props.history.push('/')
            )
         }
     }
