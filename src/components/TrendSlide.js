@@ -6,11 +6,10 @@ import { withRouter } from 'react-router-dom'
 
 
 const TrendSlide = (props) => {
-    const url=process.env.REACT_APP_URL
 
     const handleOnClick = (e) => {   
         props.getProducts(e.target.name)
-        props.history.push(`${url}/search?q=${e.target.name}`)
+        props.history.push(`/search?q=${e.target.name}`)
          
     }
 

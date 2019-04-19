@@ -23,7 +23,7 @@ class PaymentForm extends Component {
     componentDidUpdate(prevState, prevProps){
         const url=process.env.REACT_APP_URL
         if(this.props.paymentData!== prevProps.paymentData){
-         this.props.history.push(`${url}/cart/checkout/confirmation`)
+         this.props.history.push(`/cart/checkout/confirmation`)
         }
     }
 
@@ -36,7 +36,6 @@ class PaymentForm extends Component {
 
     handleSubmit =  (e)=>{
         e.preventDefault();
-        const url=process.env.REACT_APP_URL
             this.setState({isClick: true})
         try {            
            this.props.stripe.createToken({name: this.state.name}).then((result) => {
@@ -49,7 +48,7 @@ class PaymentForm extends Component {
                 }else{
                    this.setState({
                         error: result.error.message
-                   }, ()=>this.props.history.push(`${url}/cart/checkout`))
+                   }, ()=>this.props.history.push(`/cart/checkout`))
                 }
               })
         } catch(e) {

@@ -9,7 +9,7 @@ const UserMenu = (props) => {
     const url=process.env.REACT_APP_URL
 
     const onClickHisHandler = ()=>{
-        props.getUserHistory(props.user.id).then(()=> props.history.push(`${url}/${props.user.id}/history`))
+        props.getUserHistory(props.user.id).then(()=> props.history.push(`/${props.user.id}/history`))
     }
 
     const logoutHandler = () => {
@@ -21,11 +21,11 @@ const UserMenu = (props) => {
     }
 
     const wishListHandler = () => {
-        props.history.push(`${url}/${props.user.id}/wishlist`)
+        props.history.push(`/${props.user.id}/wishlist`)
     }
 
     const onClickProfileHandler= ()=>{
-        props.history.push(`${url}/${props.user.id}/profile`)
+        props.history.push(`/${props.user.id}/profile`)
     }
 
     return (

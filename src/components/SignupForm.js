@@ -43,7 +43,7 @@ class SignupForm extends Component{
 
     handleClick = () => {
         this.props.history.push({
-            pathname: '/signup'
+            pathname: '/login'
           })
     }
 

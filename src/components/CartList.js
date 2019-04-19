@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 
 const CartList = (props) => {
-    // const url=process.env.REACT_APP_URL
     const arrOfCartItems = props.cart.map((prod, idx) =>  <CartCard key={idx} productObj={prod}/>)
     return (
         <div className="cart-list">

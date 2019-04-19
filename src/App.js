@@ -45,17 +45,17 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-              {/* <Route  path ={`${url}/cart/checkout/confirmation`} component={ComfirmationPage} />
-              <Route  path ={`${url}/products/:name`} component={ProductItem} />
-              <Route  path ={`${url}/:id/profile`} component={Profile} />
-              <Route  path ={`${url}/:name/wishlist`} component={WishList} />
-              <Route  path ={`${url}/:name/history`} component={OrderHistory} />
-              <Route  path ={`${url}/cart/checkout`} component={PaymentForm} />
-              <Route  path ={`${url}/cart`} component={Cart} />
-              <Route  path ={url} component={HomeContainer} />
-              <Route  path ={`${url}/login`} component={Login} /> */}
+              <Route  path ={`/cart/checkout/confirmation`} component={ComfirmationPage} />
+              <Route  path ={`/products/:name`} component={ProductItem} />
+              <Route  path ={`/:id/profile`} component={Profile} />
+              <Route  path ={`/:name/wishlist`} component={WishList} />
+              <Route  path ={`/:name/history`} component={OrderHistory} />
+              <Route  path ={`/cart/checkout`} component={PaymentForm} />
+              <Route  path ={`/cart`} component={Cart} />
+              <Route  path ={'/welcome'} component={HomeContainer} />
+              <Route  path ={`/login`} component={Login} />
               <Route  path ={`/signup`} component={Signup} />
-              {/* <Route  path ={url} component={LandingPage} /> */}
+              <Route  path ={'/'} component={LandingPage} />
         </Switch>
       </div>
     );

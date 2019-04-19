@@ -6,7 +6,6 @@ import { Link, withRouter } from 'react-router-dom'
 import { getUserHistory, deleteUser } from '../actions/userAction'
 
 const Profile = (props) => {
-    const url=process.env.REACT_APP_URL
 
     const logoutHandler = () => {
         localStorage.clear()
@@ -25,7 +24,7 @@ const Profile = (props) => {
     }
 
     const onClickHisHandler = ()=>{
-        props.getUserHistory(props.user.id).then(()=> props.history.push(`${url}/${props.user.id}/history`))
+        props.getUserHistory(props.user.id).then(()=> props.history.push(`/${props.user.id}/history`))
         // setTimeout(()=> props.history.push(`${url}/${props.user.id}/history`), 500)
     }
 
@@ -56,13 +55,13 @@ const Profile = (props) => {
                     <div className="profile-usermenu">
                         <ul className="nav">
                             <li className="active">
-                                <Link to={url}><i className="fas fa-home"></i> Home </Link>
+                                <Link to='/welcome'><i className="fas fa-home"></i> Home </Link>
                             </li>
                             <li>
                                 <Link to='' onClick={onClickHisHandler}><i className="fas fa-history"></i> History </Link>
                             </li>
                             <li>
-                                <Link to={`${url}/${props.user.id}/wishlist`}><i className="fas fa-heart"></i> Wish List </Link>
+                                <Link to={`/${props.user.id}/wishlist`}><i className="fas fa-heart"></i> Wish List </Link>
                             </li>
                             <li>
                                 <Link to='' onClick={logoutHandler}><i className="fas fa-sign-out-alt"></i> LOGOUT </Link>

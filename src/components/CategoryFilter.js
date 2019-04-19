@@ -21,7 +21,7 @@ class CategoryFilter extends Component{
             value: e.target.value
          }, () => {
                 this.props.CategoryProduct(this.state.value)
-                this.props.history.push(`${url}/search/category?q=${this.state.value}`) 
+                this.props.history.push(`/search/category?q=${this.state.value}`) 
             })
     }
 
