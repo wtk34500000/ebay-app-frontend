@@ -30,7 +30,7 @@ class HomeContainer extends Component{
             )
         }else{
            return (
-               <Redirect to='/signup'/>
+                <Redirect to='https://ecom-shop.herokuapp.com/signup'/>
            )
         }
     }
