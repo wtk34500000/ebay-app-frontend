@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 const Cart = (props) => {
 
     const onClickCartHandler = () => {
-        props.history.push({pathname=`/cart`})
+        props.history.push({pathname: '/cart'})
     }
 
     return (

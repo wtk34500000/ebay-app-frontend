@@ -20,7 +20,7 @@ class LoginForm extends Component{
     handleSubmit = (e) => {
         e.preventDefault()
         // const url=process.env.REACT_APP_URL
-        this.props.loginUser(this.state).then(()=> this.props.history.push({pathname='/welcome'}))
+        this.props.loginUser(this.state).then(()=> this.props.history.push({pathname: '/welcome'}))
         this.setState({
             email: '',
             password:''

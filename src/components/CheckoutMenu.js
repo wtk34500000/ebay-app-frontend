@@ -17,11 +17,10 @@ const CheckoutMenu = (props) => {
     
 
     const onClickHandler = () =>{
-        const url=process.env.REACT_APP_URL
         postOrder(props.cart)
         props.addOrder(props.cart, getTotalPrice())
         props.emptyCart()
-        props.history.push(`/cart/checkout`)
+        props.history.push('/cart/checkout')
     }
 
     const postOrder = (cartArr) =>{

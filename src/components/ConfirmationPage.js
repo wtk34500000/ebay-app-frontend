@@ -19,14 +19,14 @@ const ConfirmationPage = (props) => {
     return (
         <div id="order-info">
             {props.paymentData? <div id="order-header">
-                <Link to={'/welcome'}>Back to Home Page</Link>
+                <Link to='/welcome'>Back to Home Page</Link>
                 <h3>Order Comfirmation Id: {props.paymentData.created} </h3>
                 <h1>Thank you for your purchase!!</h1>
                 
                 <ListGroup id="list-group">
                     {getArrOfCartItems()}
                 </ListGroup>
-            </div>: <Redirect to={'/welcome'}/>}
+            </div>: <Redirect to='/welcome'/>}
         </div>
     )
 }
