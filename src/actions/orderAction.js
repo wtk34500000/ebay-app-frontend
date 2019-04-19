@@ -8,7 +8,7 @@ export const checkOut = (paymentData) => ({type: CHECK_OUT, payload: paymentData
 
 export const postCheckout = (name, amount, tokenId, email) => {
     return (dispatch) =>{
-        return fetch("http://localhost:3001/api/v1/donate", {
+        return fetch("https://ecom-shopping.herokuapp.com/api/v1/donate", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",

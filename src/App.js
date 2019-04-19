@@ -20,7 +20,6 @@ import './App.css';
 class App extends Component {
 
   componentDidMount = () => {
-    // const url=process.env.REACT_APP_URL
     const token = localStorage.token;
     const cart = JSON.parse(localStorage.getItem("cart"))
     const wishList = JSON.parse(localStorage.getItem("wishList"))
