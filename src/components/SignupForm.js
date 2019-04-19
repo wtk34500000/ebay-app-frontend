@@ -48,8 +48,8 @@ class SignupForm extends Component{
     render(){
         return (
             <div className="Login">
-            <h1>Sign Up: </h1>
-            {/* <form onSubmit={this.handleSubmit}>
+           
+            <form onSubmit={this.handleSubmit}>
              <h1>Sign Up: </h1>
             <FormGroup controlId="first_name">
                 <FormControl
@@ -115,7 +115,7 @@ class SignupForm extends Component{
                 Log In
             </Button>
             
-            </form> */}
+            </form>
             </div>
         )
 
