@@ -34,7 +34,7 @@ class App extends Component {
         this.props.history.push('/')
     }else{
         this.props.history.push({
-          pathname: '/welcome'
+          pathname: '/signup'
         });
     }
   };
@@ -53,7 +53,7 @@ class App extends Component {
               <Route exact path ='/' component={HomeContainer} />
               <Route exact path ='/login' component={Login} />
               <Route exact path ='/signup' component={Signup} />
-              <Route exact path ='/welcome' component={LandingPage} />
+              {/* <Route exact path ='/' component={LandingPage} /> */}
         </Switch>
       </div>
     );
