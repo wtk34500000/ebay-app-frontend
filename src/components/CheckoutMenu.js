@@ -20,7 +20,7 @@ const CheckoutMenu = (props) => {
         postOrder(props.cart)
         props.addOrder(props.cart, getTotalPrice())
         props.emptyCart()
-        props.history.push('/cart/checkout')
+        props.history.push({pathname: '/cart/checkout'})
     }
 
     const postOrder = (cartArr) =>{

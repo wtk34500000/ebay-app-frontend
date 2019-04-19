@@ -35,7 +35,7 @@ class App extends Component {
         this.props.history.push(process.env.REACT_APP_URL)
     }else{
         this.props.history.push({
-          pathname: `/signup`
+          pathname: '/'
         });
     }
   };
@@ -45,17 +45,17 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-              <Route  path ={`/cart/checkout/confirmation`} component={ComfirmationPage} />
-              <Route  path ={`/products/:name`} component={ProductItem} />
-              <Route  path ={`/:id/profile`} component={Profile} />
-              <Route  path ={`/:name/wishlist`} component={WishList} />
-              <Route  path ={`/:name/history`} component={OrderHistory} />
-              <Route  path ={`/cart/checkout`} component={PaymentForm} />
-              <Route  path ={`/cart`} component={Cart} />
-              <Route  path ={'/welcome'} component={HomeContainer} />
-              <Route  path ={`/login`} component={Login} />
-              <Route  path ={`/signup`} component={Signup} />
-              <Route  path ={'/'} component={LandingPage} />
+              <Route  path ='/cart/checkout/confirmation' component={ComfirmationPage} />
+              <Route  path ='/products/:name' component={ProductItem} />
+              <Route  path ='/:id/profile' component={Profile} />
+              <Route  path ='/:name/wishlist' component={WishList} />
+              <Route  path ='/:name/history' component={OrderHistory} />
+              <Route  path ='/cart/checkout' component={PaymentForm} />
+              <Route  path ='/cart' component={Cart} />
+              <Route  path ='/welcome' component={HomeContainer} />
+              <Route  path ='/login' component={Login} />
+              <Route  path ='/signup' component={Signup} />
+              <Route  path ='/' component={LandingPage} />
         </Switch>
       </div>
     );
