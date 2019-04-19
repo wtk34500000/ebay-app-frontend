@@ -52,8 +52,8 @@ class App extends Component {
               <Route  path ={`${url}/cart`} component={Cart} />
               <Route  path ={url} component={HomeContainer} />
               <Route  path ={`${url}/login`} component={Login} /> */}
-              <Route  path ={url} component={Signup} />
-              {/* <Route  path ='/' component={LandingPage} /> */}
+              <Route  path ={`${url}/signup`} component={Signup} />
+              {/* <Route  path ={url} component={LandingPage} /> */}
         </Switch>
       </div>
     );
