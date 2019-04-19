@@ -34,7 +34,9 @@ class App extends Component {
         this.props.currentUser(token)
         this.props.history.push(process.env.REACT_APP_URL)
     }else{
-        this.props.history.push(`https://ecom-shop.herokuapp.com/signup`);
+        this.props.history.push({
+          pathname: '/signup'
+        });
     }
   };
 

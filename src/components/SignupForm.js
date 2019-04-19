@@ -42,7 +42,9 @@ class SignupForm extends Component{
     }
 
     handleClick = () => {
-        this.props.history.push('https://ecom-shop.herokuapp.com/signup')
+        this.props.history.push({
+            pathname: '/signup'
+          })
     }
 
     render(){
