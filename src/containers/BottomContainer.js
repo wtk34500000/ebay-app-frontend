@@ -17,7 +17,7 @@ const BottomContainer = (props) => {
                     <Route exact path ='/search/filter' render={()=> <ProductsListContainer products={productFilterArr}/>} />
                     <Route exact path ='/search/category' render={()=> <ProductsListContainer products={categoryFilterArr}/>} />
                     <Route exact path ='/search' render={()=> products.length>0? <ProductsListContainer products={products}/>: <Loader type="ThreeDots" color="#00BFFF" height={80} width={80}/>} />
-                    <Route exact path ='welcome'  component={TrendSlide}/> 
+                    <Route exact path ='/welcome'  component={TrendSlide}/> 
                  </Switch>
         </div>
     )
