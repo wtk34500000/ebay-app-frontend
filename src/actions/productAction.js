@@ -16,7 +16,7 @@ export const getProducts= (input)=> {
     const ebayApi=process.env.REACT_APP_EBAY_API
     
     return (dispatch)=> {
-        var url = "http://svcs.ebay.com/services/search/FindingService/v1";
+        var url = "https://svcs.ebay.com/services/search/FindingService/v1";
         url += "?OPERATION-NAME=findItemsByKeywords";
         url += "&SERVICE-VERSION=1.0.0";
         url += `&SECURITY-APPNAME=${ebayApi}`;
