@@ -52,7 +52,7 @@ class App extends Component {
               <Route  path ={`${url}/cart`} component={Cart} />
               {/* <Route  path ={url} component={HomeContainer} /> */}
               <Route  path ={`${url}/login`} component={Login} />
-              <Route  path ={`https://ecom-shop.herokuapp.com/signup`} component={Signup} />
+              <Route  path ={`${url}/signup`} component={Signup} />
               {/* <Route  path ='/' component={LandingPage} /> */}
         </Switch>
       </div>
