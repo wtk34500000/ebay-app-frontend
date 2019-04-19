@@ -31,7 +31,7 @@ class App extends Component {
         this.props.loadWishList(wishList)
       }
         this.props.currentUser(token)
-        this.props.history.push(process.env.REACT_APP_URL)
+        this.props.history.push('/welcome')
     }else{
         this.props.history.push({
           pathname: '/'
