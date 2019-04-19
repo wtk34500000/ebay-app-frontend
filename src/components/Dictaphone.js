@@ -62,13 +62,9 @@ class Dictaphone extends Component {
     }
 
     searchProduct = (term) =>{
-        this.props.getProducts(term).then(()=>this.props.history.push({
-            pathname: '/search'
-        }) )
-        // this.props.history.push({
-        //     pathname: '/search',
-        //     search: `?q=${term}`
-        // })
+        const url=process.env.REACT_APP_URL
+        this.props.getProducts(term)
+        this.props.history.push(`/search?q=${term}`)
     }
 
   render() {
