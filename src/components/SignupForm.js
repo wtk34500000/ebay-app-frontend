@@ -29,8 +29,7 @@ class SignupForm extends Component{
     
     handleSubmit = (e) => {
         e.preventDefault();
-        const url=process.env.REACT_APP_URL
-        this.props.createUser(this.state).then(()=> this.props.history.push(url))
+        this.props.createUser(this.state).then(()=> this.props.history.push('/welcome'))
             this.setState({
                 email: '',
                 password:'',
