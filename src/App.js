@@ -35,7 +35,7 @@ class App extends Component {
         this.props.history.push(process.env.REACT_APP_URL)
     }else{
         this.props.history.push({
-          pathname: '/signup'
+          pathname: `${url}/signup`
         });
     }
   };
