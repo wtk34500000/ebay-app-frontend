@@ -33,7 +33,7 @@ class App extends Component {
         this.props.currentUser(token)
         this.props.history.push(process.env.REACT_APP_URL)
     }else{
-        this.props.history.push("/");
+        this.props.history.push(`${url}/signup`);
     }
   };
 
