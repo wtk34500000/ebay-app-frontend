@@ -22,7 +22,7 @@ const rootReducer =combineReducers({
     orderInfo: orderReducer
 })
 
-const store=createStore(rootReducer, applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store=createStore(rootReducer, applyMiddleware(thunk))
 const stripe=window.Stripe(process.env.REACT_APP_API_KEY)
 
 ReactDOM.render(
