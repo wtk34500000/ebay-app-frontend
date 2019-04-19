@@ -7,6 +7,7 @@ import '../css/stylesheet/ProductCard.css'
 
 
 const ProductCard = (props) => {
+    console.log("inside ProductCard", props.productObj)  
     const title=props.productObj.title ? props.productObj.title[0]: " N/A"
     const img =props.productObj.galleryURL && props.productObj.galleryURL[0].length>0? props.productObj.galleryURL[0]: " N/A"
     const condition = props.productObj.condition? props.productObj.condition[0].conditionDisplayName[0]: " N/A"
