@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {withRouter } from 'react-router-dom';
 import {emptyCart} from '../actions/cartAction';
-import { getUserHistory } from '../actions/userAction';
+import { getUserHistory, emptyWishList } from '../actions/userAction';
 import {Dropdown, NavDropdown} from 'react-bootstrap'
 
 const UserMenu = (props) => {
@@ -15,7 +15,9 @@ const UserMenu = (props) => {
     const logoutHandler = () => {
         localStorage.clear()
         props.emptyCart()
-        props.history.push('/')
+        props.emptyWishList()
+        setTimeout(()=> props.history.push('/'), 300)
+        // props.history.push('/')
     }
 
     const wishListHandler = () => {
@@ -43,4 +45,4 @@ const mapStateToProps = (state) => {
     return {cart: state.cartInfo.cart, user: state.userInfo.user}
 }
 
-export default withRouter(connect(mapStateToProps, {emptyCart, getUserHistory})(UserMenu));
+export default withRouter(connect(mapStateToProps, {emptyCart, getUserHistory, emptyWishList})(UserMenu));

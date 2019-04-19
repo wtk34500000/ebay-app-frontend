@@ -13,11 +13,13 @@ export const filterProduct = (filteredVal) => ({type:FILTER_PRODUCT, payload: fi
 export const CategoryProduct =(value)=> ({type:CATEGORY_PRODUCT, payload: value})
 
 export const getProducts= (input)=> {
+    const ebayApi=process.env.REACT_APP_EBAY_API
+    
     return (dispatch)=> {
         var url = "http://svcs.ebay.com/services/search/FindingService/v1";
         url += "?OPERATION-NAME=findItemsByKeywords";
         url += "&SERVICE-VERSION=1.0.0";
-        url += "&SECURITY-APPNAME=tonyhuan-myapp-PRD-6bcb87b90-2910d9d6";
+        url += `&SECURITY-APPNAME=${ebayApi}`;
         url += "&GLOBAL-ID=EBAY-US";
         url += "&RESPONSE-DATA-FORMAT=JSON";
         // url += "&callback=_cb_findItemsByKeywords";
@@ -25,22 +27,21 @@ export const getProducts= (input)=> {
         url += `&keywords=${input}`;
         url += "&paginationInput.entriesPerPage=100";
 
-    //   return  fetch(url)
-    //             .then(res =>res.text())
-    //             .then(data => {
-    //                 const str = data.slice(28, data.length-1)
-    //                 const obj = JSON.parse(str)
-    //                 dispatch(loadProduct(obj.findItemsByKeywordsResponse[0].searchResult[0].item))
-    //             })
-    //             .catch(console.error)
-
-   
-
-        // const fetch = fetchJsonp();
-
        return fetchJsonp(url)
-        .then(res=> res.json())
-        .then(data => dispatch(loadProduct(data.findItemsByKeywordsResponse[0].searchResult[0].item)))
+        .then(res=> {
+            if (res.ok) {
+                return res.json();
+            } else {
+                throw new Error('No result!');
+            }
+         })
+        .then(data => {
+            if(data.findItemsByKeywordsResponse[0].searchResult[0].item){
+                dispatch(loadProduct(data.findItemsByKeywordsResponse[0].searchResult[0].item)) 
+            } else{
+                throw new Error('No result!');
+            }
+        })
         .catch((ex)=>console.log('failed', ex)
         );
     }

@@ -20,11 +20,15 @@
     margin: auto;
 }
 
-.card-img {
+#card-img {
     max-height: 20vh;
     max-width: 10vw;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#card-img img {
+    width: 8rem;
 }
 
 .card-info {

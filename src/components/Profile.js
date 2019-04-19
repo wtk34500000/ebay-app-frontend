@@ -11,7 +11,8 @@ const Profile = (props) => {
     const logoutHandler = () => {
         localStorage.clear()
         props.emptyCart()
-        props.history.push('/')
+        props.emptyWishList()
+        setTimeout(()=> props.history.push('/'), 300)
     }
 
     const deleteHandler= () => {

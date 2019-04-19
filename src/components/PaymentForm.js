@@ -10,7 +10,7 @@ class PaymentForm extends Component {
         name: "",
         amount: '',
         email: '',
-        error: '',
+        error: null,
         isClick: false
     }
 
@@ -37,7 +37,7 @@ class PaymentForm extends Component {
     handleSubmit =  (e)=>{
         e.preventDefault();
         const url=process.env.REACT_APP_URL
-        this.setState({isClick: true})
+            this.setState({isClick: true})
         try {            
            this.props.stripe.createToken({name: this.state.name}).then((result) => {
                 if(result.token){

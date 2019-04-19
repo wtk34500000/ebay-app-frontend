@@ -6,6 +6,9 @@ const initialState={
 
 const userReducer = (state = initialState, action) => {
     switch(action.type){
+        case "EMPTY_WISH_LIST":
+            localStorage.removeItem("wishList")
+            return {wishList: []}
         case "LOAD_WISH_LIST":
             return {...state, wishList: action.payload}
         case "REMOVE_FROM_WISH_LIST":

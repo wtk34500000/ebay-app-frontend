@@ -6,7 +6,7 @@ import {withRouter} from 'react-router'
 import {removeFromWishList} from '../actions/userAction'
 
 const CartCard = (props) => {
-    
+
     const onClickHandler = () => {
         const url=process.env.REACT_APP_URL
         if(props.history.location.pathname === `${url}/cart`){
@@ -19,7 +19,7 @@ const CartCard = (props) => {
 
     return (
         <div className="cart-card">
-            <div className="card-img">
+            <div id="card-img">
                 <img src={props.productObj.galleryURL[0]} alt="pic"/>
             </div>
             <div className="card-info">

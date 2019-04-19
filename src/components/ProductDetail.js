@@ -14,7 +14,7 @@ const ProductDetail = (props) => {
     if(props.productObj){
         title=props.productObj.title[0]
         img =props.productObj.galleryURL[0]
-        condition = props.productObj.condition[0].conditionDisplayName[0]
+        condition = props.productObj.condition? props.productObj.condition[0].conditionDisplayName[0]: null
         price=`${props.productObj.sellingStatus[0].currentPrice[0]["@currencyId"]} $${props.productObj.sellingStatus[0].currentPrice[0]["__value__"]}`
     }
     
