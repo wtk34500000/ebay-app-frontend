@@ -20,7 +20,7 @@ import './App.css';
 class App extends Component {
 
   componentDidMount = () => {
-    const url=process.env.REACT_APP_URL
+    // const url=process.env.REACT_APP_URL
     const token = localStorage.token;
     const cart = JSON.parse(localStorage.getItem("cart"))
     const wishList = JSON.parse(localStorage.getItem("wishList"))
@@ -35,7 +35,7 @@ class App extends Component {
         this.props.history.push(process.env.REACT_APP_URL)
     }else{
         this.props.history.push({
-          pathname: `${url}/signup`
+          pathname: `/signup`
         });
     }
   };
@@ -54,7 +54,7 @@ class App extends Component {
               <Route  path ={`${url}/cart`} component={Cart} />
               <Route  path ={url} component={HomeContainer} />
               <Route  path ={`${url}/login`} component={Login} /> */}
-              <Route  path ={`${url}/signup`} component={Signup} />
+              <Route  path ={`/signup`} component={Signup} />
               {/* <Route  path ={url} component={LandingPage} /> */}
         </Switch>
       </div>
