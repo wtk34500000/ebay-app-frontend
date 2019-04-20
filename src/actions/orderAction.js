@@ -12,6 +12,7 @@ export const postCheckout = (name, amount, tokenId, email) => {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
+                    'Accept': 'application/json',
                     Authorization: `Bearer ${localStorage.token}`
                 },
                 body: JSON.stringify({
@@ -22,10 +23,10 @@ export const postCheckout = (name, amount, tokenId, email) => {
                 })
             })
             .then(res => {
-                dispatch(checkOut(res))
-                // console.log("json obj", res.json())
-                //     return res.json();
+                // dispatch(checkOut(res))
+                console.log("json obj", res.json())
+                    return res.json();
             })
-    //         .then(paymentData => console.log("paymentData send back from backend", paymentData) || dispatch(checkOut(paymentData)))
+            .then(paymentData => console.log("paymentData send back from backend", paymentData) || dispatch(checkOut(paymentData)))
     }
 }
