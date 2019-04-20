@@ -43,7 +43,7 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-              <Route exact path ='/cart/checkout/confirmation' component={ComfirmationPage} />
+              {/* <Route exact path ='/cart/checkout/confirmation' component={ComfirmationPage} /> */}
               <Route exact path ='/products/:name' component={ProductItem} />
               <Route exact path ='/:id/profile' component={Profile} />
               <Route exact path ='/:name/wishlist' component={WishList} />
