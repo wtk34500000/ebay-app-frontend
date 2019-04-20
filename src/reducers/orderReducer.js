@@ -9,6 +9,7 @@ const initialState={
 const orderReducer = (state = initialState, action) => {
     switch(action.type){
         case "CHECK_OUT":
+        console.log("promise", action.payload)
             return {
                     order: {...state.order },  
                     paymentData: action.payload
