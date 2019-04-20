@@ -12,10 +12,15 @@ const UserMenu = (props) => {
     }
 
     const logoutHandler = () => {
+        // localStorage.clear()
+        // props.emptyCart()
+        // props.emptyWishList()
+        // setTimeout(()=> props.history.push({pathname: '/signup'}), 800)
+
         localStorage.clear()
         props.emptyCart()
         props.emptyWishList()
-        setTimeout(()=> props.history.push({pathname: '/signup'}), 800)
+        setTimeout(()=> props.history.push({pathname: '/signup'}), 600)
     }
 
     const wishListHandler = () => {
