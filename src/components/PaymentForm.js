@@ -22,7 +22,7 @@ class PaymentForm extends Component {
 
     componentDidUpdate(prevState, prevProps){
         if(this.props.paymentData!== prevProps.paymentData){
-         this.props.history.push('/cart/checkout/confirmation')
+         this.props.history.push('/welcome')
         }
     }
 
