@@ -50,10 +50,10 @@ class App extends Component {
               <Route exact path ='/:name/history' component={OrderHistory} />
               <Route exact path ='/cart/checkout' component={PaymentForm} />
               <Route exact path ='/cart' component={Cart} />
-              <Route path ='/welcome' component={HomeContainer} />
               <Route exact path ='/login' component={Login} />
               <Route exact path ='/signup' component={Signup} />
               <Route exact path ='/' component={LandingPage} />
+              <Route path ='/welcome' component={HomeContainer} />
         </Switch>
       </div>
     );

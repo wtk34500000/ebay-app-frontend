@@ -11,7 +11,7 @@ const Profile = (props) => {
         localStorage.clear()
         props.emptyCart()
         props.emptyWishList()
-        setTimeout(()=> props.history.push('/signup'), 300)
+        setTimeout(()=> props.history.push({pathname: '/signup'}), 600)
     }
 
     const deleteHandler= () => {
@@ -19,7 +19,7 @@ const Profile = (props) => {
         const token=localStorage.token
         props.deleteUser(id, token)
         localStorage.clear()
-        props.history.push('/signup')
+        setTimeout(()=> props.history.push('/signup'), 500)
 
     }
 

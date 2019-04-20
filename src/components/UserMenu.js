@@ -16,7 +16,7 @@ const UserMenu = (props) => {
         localStorage.clear()
         props.emptyCart()
         props.emptyWishList()
-        setTimeout(()=> props.history.push('/signup'), 300)
+        setTimeout(()=> props.history.push('/signup'), 500)
         // props.history.push('/')
     }
 
@@ -29,7 +29,7 @@ const UserMenu = (props) => {
     }
 
     return (
-        <NavDropdown title={props.user.first_name } id="basic-nav-dropdown">
+        <NavDropdown title={props.user.user_name } id="basic-nav-dropdown">
                     {/* <Dropdown.Item onClick={onClickCartHandler}>CART <i className="fas fa-cart-plus"></i>{`(${props.cart.length})`}</Dropdown.Item> */}
                     <Dropdown.Item onClick={onClickProfileHandler}>PROFILE <i className="fas fa-user"></i></Dropdown.Item>
                     <Dropdown.Item onClick={onClickHisHandler}> HISTORY <i className="fas fa-folder"></i></Dropdown.Item>
