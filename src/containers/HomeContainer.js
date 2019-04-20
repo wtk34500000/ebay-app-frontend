@@ -30,7 +30,7 @@ class HomeContainer extends Component{
             )
         }else{
            return (
-               this.props.history.push('/')
+               this.props.history.push('/signup')
            )
         }
     }
