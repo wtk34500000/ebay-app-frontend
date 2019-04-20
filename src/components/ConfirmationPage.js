@@ -11,7 +11,7 @@ const ConfirmationPage = (props) => {
             const img =prod.galleryURL[0];
             const title = prod.title[0];
             const itemPrice = prod.sellingStatus[0].currentPrice[0]['__value__'];
-         return <ListGroup.Item key={idx} className="list-item" > <img src={img} alt=''/> <p>{ `${title} - $${itemPrice}`}</p></ListGroup.Item>
+         return <ListGroup.Item key={idx} className="list-item" > <img src={img} alt='' style={{width: "13rem", width: "10rem"}}/> <p>{ `${title} - $${itemPrice}`}</p></ListGroup.Item>
          })
          return arrOfCartItems
     }
