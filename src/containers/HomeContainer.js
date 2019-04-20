@@ -10,9 +10,7 @@ import '../css/stylesheet/HomeContainer.css'
 class HomeContainer extends Component{
 
     render(){
-        const userId =this.props.user.id
-
-        if(userId){
+        if(this.props.user.id){
             return (
                 <div className="home-container">
                     <div className="head">
@@ -30,7 +28,7 @@ class HomeContainer extends Component{
         }
         else{
            return (
-                    this.props.history.push('/signup')
+                    this.props.history.push({pathname: '/'})
            )
         }
     }
