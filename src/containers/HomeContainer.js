@@ -12,7 +12,7 @@ class HomeContainer extends Component{
     render(){
         const token =localStorage.token
 
-        if(token && token !== undefined){
+        // if(token && token !== undefined){
             return (
                 <div className="home-container">
                     <div className="head">
@@ -25,14 +25,16 @@ class HomeContainer extends Component{
                     <div className="bottom">
                         <BottomContainer />
                     </div>
-                    
                 </div>
             )
-        }else{
-           return (
-               this.props.history.push('/signup')
-           )
-        }
+        // }
+        // else{
+        //    return (
+             
+        //             this.props.history.push('/signup')
+             
+        //    )
+        // }
     }
 }
 

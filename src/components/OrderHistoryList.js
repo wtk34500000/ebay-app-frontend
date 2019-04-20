@@ -7,7 +7,7 @@ import{ ListGroup } from 'react-bootstrap'
 const OrderHistoryList = (props) => {
 
     const getUserHis = () => {
-        const arrOfHistory = props.userHis.products.map(product => <ListGroup.Item><HistoryItem key={product.id} productObj={product}/></ListGroup.Item>)
+        const arrOfHistory = props.userHis.products.map((product, idx) => <ListGroup.Item><HistoryItem key={idx} productObj={product}/></ListGroup.Item>)
         return arrOfHistory;
     }    
 

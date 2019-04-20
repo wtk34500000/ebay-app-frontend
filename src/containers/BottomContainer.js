@@ -9,7 +9,6 @@ import Loader from 'react-loader-spinner';
 
 const BottomContainer = (props) => {
     const { products, productFilterArr, categoryFilterArr } = props
-    console.log("inside BottomContainer",products)
     return(
         <div className="bottom-container"> 
                     {products.length>0? <SideBarContainer/>: " "}
