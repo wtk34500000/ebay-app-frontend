@@ -34,7 +34,7 @@ const CheckoutMenu = (props) => {
 
     const createOrder = (userId, productId)=>{
         const fetchUrl=process.env.REACT_APP_BACKEND_URL
-        return  fetch(`${fetchUrl}/orders`, {
+        return  fetch(`${fetchUrl}/api/v1/orders`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -50,7 +50,7 @@ const CheckoutMenu = (props) => {
 
     const createProduct = (item)=>{
         const fetchUrl=process.env.REACT_APP_BACKEND_URL
-        return fetch(`${fetchUrl}/products`, {
+        return fetch(`${fetchUrl}/api/v1/products`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

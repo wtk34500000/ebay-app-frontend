@@ -17,14 +17,14 @@ const fetchUrl=process.env.REACT_APP_BACKEND_URL
 
 export const getUserHistory = (id) => {
     return (dispatch) => {
-        return fetch(`${fetchUrl}/users/${id}`)
+        return fetch(`${fetchUrl}/api/v1/users/${id}`)
         .then(res => res.json())
         .then(userInfo => dispatch(loadUserhistory(userInfo.user)))
     }
 }
 
 export const deleteUser = (id, token)=> (dispatch)=> {
-        return fetch(`${fetchUrl}/users/${id}`, {
+        return fetch(`${fetchUrl}/api/v1/users/${id}`, {
             method: "DELETE",
             headers:{
                 "content-type": "application/json",
@@ -35,7 +35,7 @@ export const deleteUser = (id, token)=> (dispatch)=> {
 
 export const createUser = (user) =>{
         return (dispatch) => {
-            return fetch(`${fetchUrl}/signup`,{
+            return fetch(`${fetchUrl}/api/v1/signup`,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export const createUser = (user) =>{
 
 export const loginUser = (user) =>{
     return (dispatch) => {
-        return  fetch(`${fetchUrl}/login`,{
+        return  fetch(`${fetchUrl}/api/v1/login`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -95,7 +95,7 @@ export const loginUser = (user) =>{
 
 export const currentUser = (token) =>{
     return (dispatch) => {
-        return fetch(`${fetchUrl}/current_user`, {
+        return fetch(`${fetchUrl}/api/v1/current_user`, {
             method: "GET",
             headers: {
               "content-type": "application/json",
