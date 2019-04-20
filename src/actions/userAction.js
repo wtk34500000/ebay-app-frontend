@@ -103,10 +103,15 @@ export const currentUser = (token) =>{
               Authorization: `Bearer ${token}`
             }
           })
-            .then(resp => resp.json())
-            .then(user => {
-                dispatch(addUser(user.user))
+            .then(resp => {
+                if (resp.ok) {
+                    return resp.json();
+                  } else {
+                    throw new Error('Auth failed, something went wrong!');
+                  }
             })
+            .then(user => dispatch(addUser(user.user)))
+            .catch(error=> console.log(error))
         }  
 }
 

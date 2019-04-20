@@ -29,7 +29,7 @@ class SignupForm extends Component{
     
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.createUser(this.state).then(()=> this.props.history.push('/welcome'))
+        this.props.createUser(this.state).then(()=> this.props.history.push({pathname: '/welcome'}))
             this.setState({
                 email: '',
                 password:'',

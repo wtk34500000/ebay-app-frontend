@@ -10,9 +10,9 @@ import '../css/stylesheet/HomeContainer.css'
 class HomeContainer extends Component{
 
     render(){
-        const token =localStorage.token
+        const userId =this.props.user.id
 
-        if(token && token !== undefined){
+        if(userId){
             return (
                 <div className="home-container">
                     <div className="head">
@@ -30,9 +30,7 @@ class HomeContainer extends Component{
         }
         else{
            return (
-             
                     this.props.history.push('/signup')
-             
            )
         }
     }
