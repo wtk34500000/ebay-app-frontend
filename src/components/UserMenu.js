@@ -15,7 +15,7 @@ const UserMenu = (props) => {
         localStorage.clear()
         props.emptyCart()
         props.emptyWishList()
-        setTimeout(()=> props.history.push({pathname: '/'}), 800)
+        setTimeout(()=> props.history.push({pathname: '/signup'}), 800)
     }
 
     const wishListHandler = () => {

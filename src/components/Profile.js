@@ -19,7 +19,6 @@ const Profile = (props) => {
         const token=localStorage.token
         props.deleteUser(id, token).then(()=> props.history.push('/signup'))
         localStorage.clear()
-        // setTimeout(()=> props.history.push('/signup'), 500)
     }
 
     const onClickHisHandler = ()=>{
