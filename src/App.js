@@ -44,12 +44,12 @@ class App extends Component {
       <div className="App">
         <Switch>
               {/* <Route exact path ='/cart/checkout/confirmation' component={ComfirmationPage} /> */}
-              <Route exact path ='/products/:name' component={ProductItem} />
-              <Route exact path ='/:id/profile' component={Profile} />
-              <Route exact path ='/:name/wishlist' component={WishList} />
-              <Route exact path ='/:name/history' component={OrderHistory} />
-              <Route exact path ='/cart/checkout' component={PaymentForm} />
-              <Route exact path ='/cart' component={Cart} />
+              <Route  path ='/products/:name' component={ProductItem} />
+              <Route  path ='/:id/profile' component={Profile} />
+              <Route  path ='/:name/wishlist' component={WishList} />
+              <Route  path ='/:name/history' component={OrderHistory} />
+              <Route  path ='/cart/checkout' component={PaymentForm} />
+              <Route  path ='/cart' component={Cart} />
               <Route  path ='/login' component={Login} />
               <Route  path ='/signup' component={Signup} />
               <Route  path ='/welcome' component={HomeContainer} />
