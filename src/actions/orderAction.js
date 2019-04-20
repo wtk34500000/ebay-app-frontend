@@ -21,11 +21,12 @@ export const postCheckout = (name, amount, tokenId, email) => {
                     email: email
                 })
             }).then(res => {
+                console.log("resp from stripe", res.text())
                 if(res.ok) {
                     console.log("result from stripe", res.json())
                     return res.json();
                   } else {
-                    throw new Error('Email or user name already existed!');
+                    throw new Error('Something went wrong!');
                   }
             })
             .then(paymentData => console.log("paymentData send back from backend",paymentData) || dispatch(checkOut(paymentData)))
