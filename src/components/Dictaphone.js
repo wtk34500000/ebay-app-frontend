@@ -56,7 +56,7 @@ class Dictaphone extends Component {
              }, ()=>  this.props.getProducts(this.state.input))
             // this.searchProduct(this.state.input)
             // this.props.getProducts(this.state.input)
-            setTimeout(()=> this.props.history.push(`/search?q=${this.state.input}`), 200)
+            setTimeout(()=> this.props.history.push(`/welcome/search?q=${this.state.input}`), 200)
             // this.props.history.push(`/ecom/search?q=${this.state.input}`)
         }
     }

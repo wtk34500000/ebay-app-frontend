@@ -11,49 +11,49 @@ const NavBar = (props) => {
     const onClickToysHandle =()=> {
         const toys ='toys'
         props.getProducts(toys)
-        props.history.push(`/search?q=${toys}`)
+        props.history.push(`/welcome/search?q=${toys}`)
     }
 
     const onClickMusicHandle =()=> {
         const musics ='musics'
         props.getProducts(musics)
-        props.history.push(`/search?q=${musics}`)
+        props.history.push(`/welcome/search?q=${musics}`)
     }
 
     const onClickMotorsHandle = () => {
         const motors ='motors'
         props.getProducts(motors)
-        props.history.push(`/search?q=${motors}`)
+        props.history.push(`/welcome/search?q=${motors}`)
     }
 
     const onClickSportHandle = () => {
         const sportingGood ='sporting good'
         props.getProducts(sportingGood)
-        props.history.push(`/search?q=${sportingGood}`)
+        props.history.push(`/welcome/search?q=${sportingGood}`)
     }
 
     const onClickFashionHandle = () => {
         const fashion ='fashion'
         props.getProducts(fashion)
-        props.history.push(`/search?q=${fashion}`)
+        props.history.push(`/welcome/search?q=${fashion}`)
     }
 
     const onClickElecHandle = () => {
         const electronics ='electronics'
         props.getProducts(electronics)
-        props.history.push(`/search?q=${electronics}`)
+        props.history.push(`/welcome/search?q=${electronics}`)
     }
 
     const onClickHomeHandle = () => {
         const homeStationary ='home stationary'
         props.getProducts(homeStationary)
-        props.history.push(`/search?q=${homeStationary}`)
+        props.history.push(`/welcome/search?q=${homeStationary}`)
     }
 
     const onClickArtHandle = () => {
         const art ='art'
         props.getProducts(art)
-        props.history.push(`/search?q=${art}`)
+        props.history.push(`/welcome/search?q=${art}`)
     }
 
     return (

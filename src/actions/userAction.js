@@ -49,10 +49,11 @@ export const createUser = (user) =>{
                 }})
             })
             .then(res => {
+                console.log("see text result",res.text())
                 if (res.ok) {
                     return res.json();
                   } else {
-                    throw new Error('Email or user name already existed!');
+                    throw new Error('Something went wrong!');
                   }
             })
             .then(user => {
