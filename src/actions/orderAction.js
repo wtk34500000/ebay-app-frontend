@@ -10,7 +10,7 @@ const fetchUrl=process.env.REACT_APP_BACKEND_URL
 
 export const postCheckout = (name, amount, tokenId, email) => {
     return (dispatch) =>{
-        return fetch(`${fetchUrl}/donate`, {
+        return fetch(`${fetchUrl}/api/v1/donate`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",

@@ -17,7 +17,7 @@ const HistoryItem = (props) => {
             </div>
             <div className="item-info">
                 <div className="item-img"> 
-                    <img src={props.productObj.img} alt=""/>
+                    <img src={props.productObj.img} alt="" style={{width: "13rem", height: "10vh"}}/>
                 </div>
                 <div className="item-title">
                         <p>{`${props.productObj.title}`}</p>

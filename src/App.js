@@ -52,7 +52,7 @@ class App extends Component {
               <Route  path ='/cart' component={Cart} />
               <Route  path ='/login' component={Login} />
               <Route  path ='/signup' component={Signup} />
-              <Route  path ='/welcome' component={HomeContainer} />
+              <Route  path ='/welcome' render={()=> localStorage.token? <HomeContainer />: null} />
               <Route  path ='/' component={LandingPage} />
         </Switch>
       </div>
