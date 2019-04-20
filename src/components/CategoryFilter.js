@@ -16,7 +16,6 @@ class CategoryFilter extends Component{
     }
 
      handleOnSelect = (e) => {
-        const url=process.env.REACT_APP_URL
          this.setState({
             value: e.target.value
          }, () => {
@@ -43,8 +42,7 @@ class CategoryFilter extends Component{
                         </select>
                     : null}
                 </div>
-            </div>
-            
+            </div>  
         )
     }
 }

@@ -12,7 +12,6 @@ const CartList = (props) => {
             {arrOfCartItems.length < 1? <button onClick={()=>props.history.goBack()}>Start Shopping</button>:""}
             {arrOfCartItems}   
         </div>
-
     )
 }
 

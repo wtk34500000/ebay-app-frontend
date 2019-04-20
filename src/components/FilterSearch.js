@@ -13,7 +13,6 @@ class FilterSearch extends Component {
       }
 
     handleOnChange = (value) => {
-      const url=process.env.REACT_APP_URL
       this.props.filterProduct(value)
       this.props.history.push(`/welcome/search/filter?price=${value}`)
       this.setState({

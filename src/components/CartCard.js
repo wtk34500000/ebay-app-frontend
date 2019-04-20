@@ -8,7 +8,6 @@ import {removeFromWishList} from '../actions/userAction'
 const CartCard = (props) => {
 
     const onClickHandler = () => {
-        const url=process.env.REACT_APP_URL
         if(props.history.location.pathname === '/cart'){
             props.removeProduct(props.productObj.title[0])
         }else{

@@ -6,7 +6,6 @@ import {getProducts} from '../actions/productAction'
 
 
 const NavBar = (props) => {
-    // const url=process.env.REACT_APP_URL
 
     const onClickToysHandle =()=> {
         const toys ='toys'
@@ -69,7 +68,6 @@ const NavBar = (props) => {
                 <Nav.Link onClick={onClickMusicHandle}>Music</Nav.Link>
                 <Nav.Link onClick={onClickToysHandle}>Toys</Nav.Link>
             </Nav>
-            
         </Navbar>
     )
 }

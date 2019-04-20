@@ -37,7 +37,6 @@ class SignupForm extends Component{
                 last_name: '',
                 user_name: ''
             })
-        // setTimeout(()=> this.props.history.push('/ecom'), 300)
     }
 
     handleClick = () => {

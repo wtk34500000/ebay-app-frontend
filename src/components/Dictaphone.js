@@ -50,19 +50,15 @@ class Dictaphone extends Component {
 
     componentDidUpdate(preProps, preState){
         if(this.props.finalTranscript !== preProps.finalTranscript){
-            // this.handleTranscript(this.props.transcript)
             this.setState({
                 input: this.props.finalTranscript
              }, ()=>  this.props.getProducts(this.state.input))
-            // this.searchProduct(this.state.input)
-            // this.props.getProducts(this.state.input)
+
             setTimeout(()=> this.props.history.push(`/welcome/search?q=${this.state.input}`), 200)
-            // this.props.history.push(`/ecom/search?q=${this.state.input}`)
         }
     }
 
     searchProduct = (term) =>{
-        const url=process.env.REACT_APP_URL
         this.props.getProducts(term)
         this.props.history.push(`/welcome/search?q=${term}`)
     }

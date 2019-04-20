@@ -64,14 +64,12 @@ const ProductDetail = (props) => {
                     <ShowSuggestList />
             </div>
         </div>
-        
     )
 }
 
 const mapStateToProps = (state) =>{
     return {
         productObj: state.productInfo.currentProduct, 
-          // price: state.orderInfo.order.price, 
         }
   }
 

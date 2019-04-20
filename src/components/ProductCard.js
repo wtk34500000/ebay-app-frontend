@@ -29,7 +29,6 @@ const ProductCard = (props) => {
                     <br />
                     Price: {price}
                 </Card.Text>
-                {/* <Button onClick={onClickHanlder} variant="primary">Detail</Button> */}
             </Card.Body>
             </Card>
 

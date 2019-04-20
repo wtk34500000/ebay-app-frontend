@@ -5,10 +5,12 @@ export const addOrder = (cart, price) => ({type: ADD_ORDER, payload: {price, car
 
 export const checkOut = (paymentData) => ({type: CHECK_OUT, payload: paymentData})
 
+const fetchUrl=process.env.REACT_APP_BACKEND_URL
+
 
 export const postCheckout = (name, amount, tokenId, email) => {
     return (dispatch) =>{
-        return fetch("https://ecom-shopping.herokuapp.com/api/v1/donate", {
+        return fetch(`${fetchUrl}/donate`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",

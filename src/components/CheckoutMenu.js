@@ -33,7 +33,8 @@ const CheckoutMenu = (props) => {
     }
 
     const createOrder = (userId, productId)=>{
-      return  fetch("https://ecom-shopping.herokuapp.com/api/v1/orders", {
+        const fetchUrl=process.env.REACT_APP_BACKEND_URL
+        return  fetch(`${fetchUrl}/orders`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -48,7 +49,8 @@ const CheckoutMenu = (props) => {
     }
 
     const createProduct = (item)=>{
-        return fetch("https://ecom-shopping.herokuapp.com/api/v1/products", {
+        const fetchUrl=process.env.REACT_APP_BACKEND_URL
+        return fetch(`${fetchUrl}/products`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

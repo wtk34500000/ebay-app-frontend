@@ -6,7 +6,6 @@ import { getUserHistory, emptyWishList } from '../actions/userAction';
 import {Dropdown, NavDropdown} from 'react-bootstrap'
 
 const UserMenu = (props) => {
-    const url=process.env.REACT_APP_URL
 
     const onClickHisHandler = ()=>{
         props.getUserHistory(props.user.id).then(()=> props.history.push(`/${props.user.id}/history`))
@@ -16,8 +15,7 @@ const UserMenu = (props) => {
         localStorage.clear()
         props.emptyCart()
         props.emptyWishList()
-        setTimeout(()=> props.history.push('/signup'), 500)
-        // props.history.push('/')
+        setTimeout(()=> props.history.push({pathname: '/'}), 800)
     }
 
     const wishListHandler = () => {
@@ -30,12 +28,10 @@ const UserMenu = (props) => {
 
     return (
         <NavDropdown title={props.user.user_name } id="basic-nav-dropdown">
-                    {/* <Dropdown.Item onClick={onClickCartHandler}>CART <i className="fas fa-cart-plus"></i>{`(${props.cart.length})`}</Dropdown.Item> */}
                     <Dropdown.Item onClick={onClickProfileHandler}>PROFILE <i className="fas fa-user"></i></Dropdown.Item>
                     <Dropdown.Item onClick={onClickHisHandler}> HISTORY <i className="fas fa-folder"></i></Dropdown.Item>
                     <Dropdown.Item onClick={wishListHandler}>WISHLIST <i className="fas fa-heart"></i></Dropdown.Item>
                     <Dropdown.Item onClick={logoutHandler}>LOGOUT <i className="fas fa-sign-out-alt"></i></Dropdown.Item>
-
         </NavDropdown>
     )
 }

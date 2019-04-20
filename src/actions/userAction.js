@@ -13,16 +13,18 @@ export const addToWishList =(prod) => ({type:ADD_TO_WISH_LIST, payload: prod })
 export const removeFromWishList = (prod) => ({type: REMOVE_FROM_WISH_LIST, payload: prod})
 export const loadWishList= (wishArr) => ({type: LOAD_WISH_LIST,  payload: wishArr})
 
+const fetchUrl=process.env.REACT_APP_BACKEND_URL
+
 export const getUserHistory = (id) => {
     return (dispatch) => {
-        return fetch(`https://ecom-shopping.herokuapp.com/api/v1/users/${id}`)
+        return fetch(`${fetchUrl}/users/${id}`)
         .then(res => res.json())
         .then(userInfo => dispatch(loadUserhistory(userInfo.user)))
     }
 }
 
 export const deleteUser = (id, token)=> (dispatch)=> {
-        return fetch(`https://ecom-shopping.herokuapp.com/api/v1/users/${id}`, {
+        return fetch(`${fetchUrl}/users/${id}`, {
             method: "DELETE",
             headers:{
                 "content-type": "application/json",
@@ -33,7 +35,7 @@ export const deleteUser = (id, token)=> (dispatch)=> {
 
 export const createUser = (user) =>{
         return (dispatch) => {
-            return fetch("https://ecom-shopping.herokuapp.com/api/v1/signup",{
+            return fetch(`${fetchUrl}/signup`,{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -64,7 +66,7 @@ export const createUser = (user) =>{
 
 export const loginUser = (user) =>{
     return (dispatch) => {
-        return  fetch("https://ecom-shopping.herokuapp.com/api/v1/login",{
+        return  fetch(`${fetchUrl}/login`,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -93,7 +95,7 @@ export const loginUser = (user) =>{
 
 export const currentUser = (token) =>{
     return (dispatch) => {
-        return fetch("https://ecom-shopping.herokuapp.com/api/v1/current_user", {
+        return fetch(`${fetchUrl}/current_user`, {
             method: "GET",
             headers: {
               "content-type": "application/json",

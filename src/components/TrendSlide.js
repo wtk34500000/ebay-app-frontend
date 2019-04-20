@@ -9,8 +9,7 @@ const TrendSlide = (props) => {
 
     const handleOnClick = (e) => {   
         props.getProducts(e.target.name)
-        props.history.push(`/welcome/search`)
-         
+        props.history.push(`/welcome/search?q=${e.target.name}`) 
     }
 
     return (

@@ -11,21 +11,19 @@ const Profile = (props) => {
         localStorage.clear()
         props.emptyCart()
         props.emptyWishList()
-        setTimeout(()=> props.history.push({pathname: '/signup'}), 600)
+        setTimeout(()=> props.history.push({pathname: '/'}), 600)
     }
 
     const deleteHandler= () => {
         const id=props.user.id
         const token=localStorage.token
-        props.deleteUser(id, token)
+        props.deleteUser(id, token).then(()=> props.history.push('/signup'))
         localStorage.clear()
-        setTimeout(()=> props.history.push('/signup'), 500)
-
+        // setTimeout(()=> props.history.push('/signup'), 500)
     }
 
     const onClickHisHandler = ()=>{
         props.getUserHistory(props.user.id).then(()=> props.history.push(`/${props.user.id}/history`))
-        // setTimeout(()=> props.history.push(`${url}/${props.user.id}/history`), 500)
     }
 
     return (
