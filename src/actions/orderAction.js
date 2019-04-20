@@ -20,16 +20,11 @@ export const postCheckout = (name, amount, tokenId, email) => {
                     stripeToken: tokenId,
                     email: email
                 })
-            }).then(res => {
-                console.log("resp from stripe", res.text())
-                if(res.ok) {
-                    console.log("result from stripe", res.json())
-                    return res.json();
-                  } else {
-                    throw new Error('Something went wrong!');
-                  }
             })
-            .then(paymentData => console.log("paymentData send back from backend",paymentData) || dispatch(checkOut(paymentData)))
-            .catch(err=>console.log(err))
+            .then(res => {
+                console.log("json obj", res.json())
+                    return res.json();
+            })
+            .then(paymentData => console.log("paymentData send back from backend", paymentData) || dispatch(checkOut(paymentData)))
     }
 }
