@@ -4,7 +4,7 @@
 to cart, remote items from cart, add items to wish list, remove from wish list and "checkout" using the Stripe Api.  Users will also recieve confirmation email from the app after the payment. </p>
 
 # Demo
-<a href="https://ecom-shop.herokuapp.com" target="_blank">LIVE DEMO</a> | <a href="https://github.com/wtk34500000/ebay-app-backend target="_blank"">Backend</a>
+<p><a href="https://ecom-shop.herokuapp.com" target="_blank">LIVE DEMO</a> | <a href="https://github.com/wtk34500000/ebay-app-backend target="_blank">Backend</a></p>
 
 
 # Setup
