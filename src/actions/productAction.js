@@ -46,3 +46,26 @@ export const getProducts= (input)=> {
         );
     }
 }
+
+export const createProduct = (item)=>{
+    return fetch("http://localhost:3001/api/v1/products", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            product: {
+                title: item.title[0],
+                price: item.sellingStatus && item.sellingStatus[0].currentPrice[0]["__value__"],
+                img: item.galleryURL[0],
+                item_id: item.itemId[0]
+            }
+        })
+    }).then(res => {
+        if(res.ok){
+            return res.json();
+        }else{
+            throw new Error("Cannot create product!")
+        }
+    }).catch(error => console.log(error))
+}

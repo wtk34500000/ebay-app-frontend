@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import { CardElement, injectStripe } from 'react-stripe-elements';
-import {postCheckout} from '../actions/orderAction'
+import {postCheckout, createOrder, addOrder} from '../actions/orderAction';
+import { createProduct } from '../actions/productAction';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import {emptyCart} from '../actions/cartAction'
 
 class PaymentForm extends Component {
     state={
@@ -16,15 +18,25 @@ class PaymentForm extends Component {
 
     componentDidMount(){
         this.setState({
-            amount: Math.ceil(this.props.totalPrice)
+            amount: Math.ceil(this.getTotalPrice())
         })
     }
 
-    componentDidUpdate(prevState, prevProps){
-        if(this.props.paymentData!== prevProps.paymentData){
-         this.props.history.push('/cart/checkout/confirmation')
-        }
+    // componentDidUpdate(prevState, prevProps){
+    //     if(this.props.paymentData!== prevProps.paymentData){
+    //      this.props.history.push('/cart/checkout/confirmation')
+    //     }
+    // }
+
+    getTotalPrice = () => {
+        let totalPrice =0;
+        this.props.cart.forEach(item => {
+               const price=item.sellingStatus && item.sellingStatus[0].currentPrice[0]["__value__"] ? Number(item.sellingStatus[0].currentPrice[0]["__value__"]) : 0
+               totalPrice+=price
+        })
+        return totalPrice.toFixed(2);
     }
+
 
     handleOnChange =(e)=>{
         this.setState({
@@ -32,9 +44,22 @@ class PaymentForm extends Component {
         })
     }
 
+    postOrder = (cartArr) =>{
+        cartArr.forEach(item => {
+            createProduct(item)
+              .then(product =>{
+                  createOrder(this.props.user.id, product.product.id)
+              }) 
+        } )
+    }
+
     handleSubmit =  (e)=>{
         e.preventDefault();
-            this.setState({isClick: true})
+        this.setState({isClick: true})
+
+        this.postOrder(this.props.cart)
+        this.props.addOrder(this.props.cart, this.getTotalPrice())
+        this.props.emptyCart()   
         try {            
            this.props.stripe.createToken({name: this.state.name}).then((result) => {
                 if(result.token){
@@ -42,7 +67,7 @@ class PaymentForm extends Component {
                     const amount= this.state.amount
                     const tokenId=result.token.id
                     const email=this.state.email
-                    this.props.postCheckout(name, amount, tokenId, email)
+                    this.props.postCheckout(name, amount, tokenId, email).then(()=> this.props.history.push(`${url}/cart/checkout/confirmation`))
                 }else{
                    this.setState({
                         error: result.error.message
@@ -73,9 +98,11 @@ class PaymentForm extends Component {
 
 const mapStateToProps =(state)=> {
     return {
-        paymentData: state.orderInfo.paymentData,
-        totalPrice: state.orderInfo.order.price
+        // paymentData: state.orderInfo.paymentData,
+        // totalPrice: state.orderInfo.order.price
+        cart: state.cartInfo.cart,
+        user: state.userInfo.user
     }
 }
 
-export default injectStripe(withRouter(connect(mapStateToProps, {postCheckout})(PaymentForm)))
+export default injectStripe(withRouter(connect(mapStateToProps, {postCheckout, emptyCart, addOrder})(PaymentForm)))
