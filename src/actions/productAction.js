@@ -48,7 +48,7 @@ export const getProducts= (input)=> {
 }
 
 export const createProduct = (item)=>{
-    return fetch("http://localhost:3001/api/v1/products", {
+    return fetch("https://ecom-shopping.herokuapp.com/api/v1/products", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

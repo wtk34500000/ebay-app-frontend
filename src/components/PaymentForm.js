@@ -67,7 +67,7 @@ class PaymentForm extends Component {
                     const amount= this.state.amount
                     const tokenId=result.token.id
                     const email=this.state.email
-                    this.props.postCheckout(name, amount, tokenId, email).then(()=> this.props.history.push(`${url}/cart/checkout/confirmation`))
+                    this.props.postCheckout(name, amount, tokenId, email).then(()=> this.props.history.push(`/cart/checkout/confirmation`))
                 }else{
                    this.setState({
                         error: result.error.message
