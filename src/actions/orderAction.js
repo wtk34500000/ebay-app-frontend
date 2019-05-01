@@ -32,7 +32,7 @@ export const postCheckout = (name, amount, tokenId, email) => {
 
 
 export const createOrder = (userId, productId)=>{
-    return  fetch("https://ecom-shopping.herokuapp.com/api/v1/orders", {
+    return  fetch(`${fetchUrl}/api/v1/orders`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"

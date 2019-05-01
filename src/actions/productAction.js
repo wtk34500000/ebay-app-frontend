@@ -5,12 +5,15 @@ export const FILTER_PRODUCT = "FILTER_PRODUCT";
 const CATEGORY_PRODUCT="CATEGORY_PRODUCT";
 const CLICK_PRODUCT="CLICK_PRODUCT";
 
+const fetchUrl=process.env.REACT_APP_BACKEND_URL
 
 const loadProduct = (products) => {return {type: "LOAD_PRODUCT", payload: products}}
 
 export const clickProduct = (prod) => ({type: CLICK_PRODUCT, payload: prod})
 export const filterProduct = (filteredVal) => ({type:FILTER_PRODUCT, payload: filteredVal})
 export const CategoryProduct =(value)=> ({type:CATEGORY_PRODUCT, payload: value})
+
+
 
 export const getProducts= (input)=> {
     const ebayApi=process.env.REACT_APP_EBAY_API
@@ -48,7 +51,7 @@ export const getProducts= (input)=> {
 }
 
 export const createProduct = (item)=>{
-    return fetch("https://ecom-shopping.herokuapp.com/api/v1/products", {
+    return fetch(`fetchUrl/api/v1/products`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

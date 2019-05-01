@@ -6,14 +6,14 @@ import {emptyCart} from '../actions/cartAction'
 
 const CheckoutMenu = (props) => {
 
-    // const getTotalPrice = () => {
-    //     let totalPrice =0;
-    //     props.cart.forEach(item => {
-    //            const price=item.sellingStatus && item.sellingStatus[0].currentPrice[0]["__value__"] ? Number(item.sellingStatus[0].currentPrice[0]["__value__"]) : 0
-    //            totalPrice+=price
-    //     })
-    //     return totalPrice.toFixed(2);
-    // }
+    const getTotalPrice = () => {
+        let totalPrice =0;
+        props.cart.forEach(item => {
+               const price=item.sellingStatus && item.sellingStatus[0].currentPrice[0]["__value__"] ? Number(item.sellingStatus[0].currentPrice[0]["__value__"]) : 0
+               totalPrice+=price
+        })
+        return totalPrice.toFixed(2);
+    }
     
 
     const onClickHandler = () =>{
