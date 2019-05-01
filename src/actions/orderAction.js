@@ -20,9 +20,30 @@ export const postCheckout = (name, amount, tokenId, email) => {
                     stripeToken: tokenId,
                     email: email
                 })
-            }).then(res => console.log("text text",res) || res.json()).then(paymentData => {
+            }).then(res =>res.json()).then(paymentData => {
                 dispatch(checkOut(paymentData))
             }
                  )
     }
 }
+
+export const createOrder = (userId, productId)=>{
+    return  fetch("http://localhost:3001/api/v1/orders", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+              order: {
+                user_id: userId,
+                product_id: productId
+              }
+          })
+      }).then(res => {
+          if(res.ok){
+             return res.json()
+          }else{
+            throw new Error('cannot create order');
+          }
+      }).catch(error => console.log(error))
+  }

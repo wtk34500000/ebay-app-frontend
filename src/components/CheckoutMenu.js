@@ -18,52 +18,52 @@ const CheckoutMenu = (props) => {
 
     const onClickHandler = () =>{
         const url=process.env.REACT_APP_URL
-        postOrder(props.cart)
-        props.addOrder(props.cart, getTotalPrice())
-        props.emptyCart()
+        // postOrder(props.cart)
+        // props.addOrder(props.cart, getTotalPrice())
+        // props.emptyCart()
         props.history.push(`${url}/cart/checkout`)
     }
 
-    const postOrder = (cartArr) =>{
-        cartArr.forEach(item => {
-            createProduct(item)
-              .then(product =>{
-                  createOrder(props.user.id, product.product.id).then(console.log)
-              }) 
-        } )
-    }
+    // const postOrder = (cartArr) =>{
+    //     cartArr.forEach(item => {
+    //         createProduct(item)
+    //           .then(product =>{
+    //               createOrder(props.user.id, product.product.id).then(console.log)
+    //           }) 
+    //     } )
+    // }
 
-    const createOrder = (userId, productId)=>{
-      return  fetch("http://localhost:3001/api/v1/orders", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                order: {
-                  user_id: userId,
-                  product_id: productId
-                }
-            })
-        }).then(res => res.json())
-    }
+    // const createOrder = (userId, productId)=>{
+    //   return  fetch("http://localhost:3001/api/v1/orders", {
+    //         method: "POST",
+    //         headers: {
+    //           "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             order: {
+    //               user_id: userId,
+    //               product_id: productId
+    //             }
+    //         })
+    //     }).then(res => res.json())
+    // }
 
-    const createProduct = (item)=>{
-        return fetch("http://localhost:3001/api/v1/products", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                product: {
-                    title: item.title[0],
-                    price: item.sellingStatus && item.sellingStatus[0].currentPrice[0]["__value__"],
-                    img: item.galleryURL[0],
-                    item_id: item.itemId[0]
-                }
-            })
-        }).then(res => res.json())
-    }
+    // const createProduct = (item)=>{
+    //     return fetch("http://localhost:3001/api/v1/products", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             product: {
+    //                 title: item.title[0],
+    //                 price: item.sellingStatus && item.sellingStatus[0].currentPrice[0]["__value__"],
+    //                 img: item.galleryURL[0],
+    //                 item_id: item.itemId[0]
+    //             }
+    //         })
+    //     }).then(res => res.json())
+    // }
 
     return (
         <div className="checkout">
@@ -107,10 +107,10 @@ const CheckoutMenu = (props) => {
     )
 }
 
-const mapStateToProps = (props) => {
+const mapStateToProps = (state) => {
     return {
-        cart: props.cartInfo.cart,
-        user: props.userInfo.user
+        cart: state.cartInfo.cart,
+        user: state.userInfo.user
     }
 }
 
