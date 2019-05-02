@@ -45,14 +45,6 @@ class PaymentForm extends Component {
         })
     }
 
-    // const onClickHandler = () =>{
-    //     const url=process.env.REACT_APP_URL
-    //     postOrder(props.cart)
-    //     props.addOrder(props.cart, getTotalPrice())
-    //     props.emptyCart()
-    //     props.history.push(`${url}/cart/checkout`)
-    // }
-
      postOrder = (cartArr) =>{
         cartArr.forEach(item => {
             createProduct(item)
@@ -66,19 +58,22 @@ class PaymentForm extends Component {
         e.preventDefault();
         const url=process.env.REACT_APP_URL
         this.setState({isClick: true})
-
-        this.postOrder(this.props.cart)
-        this.props.addOrder(this.props.cart, this.getTotalPrice())
-        this.props.emptyCart()
-            
+       
         try {            
            this.props.stripe.createToken({name: this.state.name}).then((result) => {
                 if(result.token){
-                    const name=this.state.name
-                    const amount= this.state.amount
-                    const tokenId=result.token.id
-                    const email=this.state.email
-                    this.props.postCheckout(name, amount, tokenId, email).then(()=> this.props.history.push(`${url}/cart/checkout/confirmation`))
+                    this.setState({error: null}, ()=> {
+
+                        this.props.addOrder(this.props.cart, this.getTotalPrice())
+                        this.postOrder(this.props.cart)
+                        this.props.emptyCart()
+
+                        const name=this.state.name
+                        const amount= this.state.amount
+                        const tokenId=result.token.id
+                        const email=this.state.email
+                        this.props.postCheckout(name, amount, tokenId, email).then(()=> this.props.history.push(`${url}/cart/checkout/confirmation`))
+                    })
                 }else{
                    this.setState({
                         error: result.error.message
@@ -100,7 +95,7 @@ class PaymentForm extends Component {
                     <input type="email" className="input-group my-1 p-1 border border-dark" placeholder="Email address" name="email" value={this.state.email} onChange={this.handleOnChange} required/>
                     <label>CC Number -- Exp. Date -- CVC -- Zip Code <i class="fab fa-cc-visa" style={{color: "black"}}></i>  <i class="fab fa-cc-mastercard" style={{color: "red"}}></i>  <i class="fab fa-cc-amex" style={{color: "blue"}}></i></label>
                     <CardElement className="p-2 border border-dark"/>
-                    {this.state.isClick? <Loader type="Rings" color="green" height={80} width={80} />: <button className="btn btn-primary border border-darl shadow mt-3">Charge It!</button>}
+                    {this.state.isClick && !this.state.error? <Loader type="Rings" color="green" height={80} width={80} />: <button className="btn btn-primary border border-darl shadow mt-3">Charge It!</button>}
                 </form>
             </main>
         )
