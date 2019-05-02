@@ -16,3 +16,5 @@ to cart, remote items from cart, add items to wish list, remove from wish list a
 </ol>
 
 # Built on
+<p>Front-end: React/Redux</p>
+<p>Back-end: Ruby on Rails</p>
