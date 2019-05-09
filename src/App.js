@@ -30,7 +30,7 @@ class App extends Component {
       if(wishList){
         this.props.loadWishList(wishList)
       }
-        this.props.currentUser(token).then(()=> console.log("token true?", token) || this.props.history.push({pathname: '/welcome'}))
+        this.props.currentUser(token).then(()=> this.props.history.push({pathname: '/welcome'}))
         // this.props.history.push({pathname: '/welcome'})
     }else{
         this.props.history.push({

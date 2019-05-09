@@ -27,7 +27,7 @@ const UserMenu = (props) => {
     }
 
     return (
-        <NavDropdown title={props.user.user_name } id="basic-nav-dropdown">
+        <NavDropdown title={props.user.id? props.user.user_name: "userName"} id="basic-nav-dropdown">
                     <Dropdown.Item onClick={onClickProfileHandler}>PROFILE <i className="fas fa-user"></i></Dropdown.Item>
                     <Dropdown.Item onClick={onClickHisHandler}> HISTORY <i className="fas fa-folder"></i></Dropdown.Item>
                     <Dropdown.Item onClick={wishListHandler}>WISHLIST <i className="fas fa-heart"></i></Dropdown.Item>
