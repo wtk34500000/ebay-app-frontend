@@ -25,7 +25,6 @@ const Profile = (props) => {
         props.getUserHistory(props.user.id).then(()=> props.history.push(`/${props.user.id}/history`))
     }
 
-    if(props.user){
     return (
         <div className="container">
             <div className="row profile">
@@ -76,10 +75,7 @@ const Profile = (props) => {
             </div>
         </div>
     </div>
-    )
-    }else{
-       return props.history.push('/')
-    }
+    ) 
 }
 
 const mapStateToProps = (state) => {
