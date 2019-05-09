@@ -10,7 +10,7 @@ import '../css/stylesheet/HomeContainer.css'
 class HomeContainer extends Component{
 
     render(){
-        // if(this.props.user.id){
+        if(this.props.user.id){
             return (
                 <div className="home-container">
                     <div className="head">
@@ -25,12 +25,12 @@ class HomeContainer extends Component{
                     </div>
                 </div>
             )
-        // }
-        // else{
-        //    return (
-        //             this.props.history.push({pathname: '/'})
-        //    )
-        // }
+        }
+        else{
+           return (
+                    this.props.history.push({pathname: '/'})
+           )
+        }
     }
 }
 
