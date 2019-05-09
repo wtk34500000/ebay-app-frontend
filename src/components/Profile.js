@@ -78,7 +78,7 @@ const Profile = (props) => {
     </div>
     )
     }else{
-        props.history.push('/')
+       return props.history.push('/')
     }
 }
 
