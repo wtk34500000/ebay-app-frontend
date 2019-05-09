@@ -52,7 +52,7 @@ class App extends Component {
               <Route  path ='/cart' component={Cart} />
               <Route  path ='/login' component={Login} />
               <Route  path ='/signup' component={Signup} />
-              <Route  path ='/welcome' render={()=> localStorage.token? <HomeContainer />: null} />
+              <Route  path ='/welcome' render={()=> this.props.user? <HomeContainer />: null} />
               <Route  path ='/' component={LandingPage} />
         </Switch>
       </div>
@@ -60,5 +60,8 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return { user: state.userInfo.user }
+}
 
-export default withRouter(connect(null, {currentUser, loadCart, loadWishList} )(App));
+export default withRouter(connect(mapStateToProps, {currentUser, loadCart, loadWishList} )(App));

@@ -10,7 +10,7 @@ import '../css/stylesheet/HomeContainer.css'
 class HomeContainer extends Component{
 
     render(){
-        // console.log("user obj???",this.props.user)
+        console.log("user obj???",this.props.user)
         // if(this.props.user){
             return (
                 <div className="home-container">
