@@ -6,8 +6,6 @@ import '../css/stylesheet/ProductShow.css'
 import ShowSuggestList from '../containers/ShowSuggestList';
 import { addToWishList } from '../actions/userAction'
 
-
-
 const ProductDetail = (props) => {
     let title, img, condition, price;
     if(props.productObj){

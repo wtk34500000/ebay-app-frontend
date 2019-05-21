@@ -5,7 +5,6 @@ import {withRouter} from 'react-router-dom'
 import Dictaphone from './Dictaphone'
 import '../css/stylesheet/SearchBar.css'
 
-
 class SearchBar extends Component {
     state={
         input: '',
