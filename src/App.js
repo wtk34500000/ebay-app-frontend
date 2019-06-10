@@ -52,7 +52,7 @@ class App extends Component {
               <Route  path ='/cart' component={Cart} />
               <Route  path ='/login' component={Login} />
               <Route  path ='/signup' component={Signup} />
-              <Route  path ='/welcome' render={()=> this.props.user? <HomeContainer />: null} />
+              <Route  path ='/welcome' render={()=> this.props.user? <HomeContainer /> : <h1>Loading....</h1>} />
               <Route  path ='/' component={LandingPage} />
         </Switch>
       </div>
